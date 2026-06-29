@@ -314,42 +314,42 @@ a:hover { text-decoration: underline; }
     </thead>
     <tbody>
       <tr>
-        <td><strong>Day 1</strong><br><span style="font-size:12px;color:#6B7280">7/7 周二</span></td>
+        <td><strong>Day 1</strong><br><span style="font-size:12px;color:#6B7280">7/7 周二</span><div id="wx-day1" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>奥克兰 → 陶波<br><span style="font-size:12px;color:#6B7280">SH1 南下</span></td>
         <td>约 2.5h<br>280 km</td>
         <td>Cambridge / Tirau 午餐<br>陶波湖边傍晚散步</td>
         <td>陶波 Taupo</td>
       </tr>
       <tr>
-        <td><strong>Day 2</strong><br><span style="font-size:12px;color:#6B7280">7/8 周三</span></td>
+        <td><strong>Day 2</strong><br><span style="font-size:12px;color:#6B7280">7/8 周三</span><div id="wx-day2" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>陶波自由日</td>
         <td>≈0</td>
         <td>Huka Falls · 湖边散步<br>温泉 · 陶波市区漫游</td>
         <td>陶波 Taupo</td>
       </tr>
       <tr class="star-day">
-        <td><strong>Day 3 ⭐</strong><br><span style="font-size:12px;color:#6B7280">7/9 周四</span></td>
+        <td><strong>Day 3 ⭐</strong><br><span style="font-size:12px;color:#6B7280">7/9 周四</span><div id="wx-day3" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>陶波 ↔ Whakapapa 日归<br><span style="font-size:12px;color:#6B7280">SH1→SH47，来回约3h</span></td>
         <td>往返3h<br>约180 km</td>
         <td>Snowland 雪橇·堆雪人<br>Sky Waka 缆车（可选）</td>
         <td>陶波 Taupo</td>
       </tr>
       <tr>
-        <td><strong>Day 4</strong><br><span style="font-size:12px;color:#6B7280">7/10 周五</span></td>
+        <td><strong>Day 4</strong><br><span style="font-size:12px;color:#6B7280">7/10 周五</span><div id="wx-day4" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>陶波 → 新普利茅斯<br><span style="font-size:12px;color:#6B7280">SH1→Awakino峡谷→SH3</span></td>
         <td>约 3.5h<br>290 km</td>
         <td>几维鸟馆午餐停留<br>Awakino 峡谷海岸</td>
         <td>新普利茅斯</td>
       </tr>
       <tr>
-        <td><strong>Day 5</strong><br><span style="font-size:12px;color:#6B7280">7/11 周六</span></td>
+        <td><strong>Day 5</strong><br><span style="font-size:12px;color:#6B7280">7/11 周六</span><div id="wx-day5" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>新普利茅斯城市日</td>
         <td>≈0</td>
         <td>海滨步道·风之杖<br>普凯库拉公园</td>
         <td>新普利茅斯</td>
       </tr>
       <tr>
-        <td><strong>Day 6</strong><br><span style="font-size:12px;color:#6B7280">7/12 周日</span></td>
+        <td><strong>Day 6</strong><br><span style="font-size:12px;color:#6B7280">7/12 周日</span><div id="wx-day6" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>新普利茅斯 → 奥克兰<br><span style="font-size:12px;color:#6B7280">SH3北上→汉密尔顿→SH1</span></td>
         <td>约 5h<br>370 km</td>
         <td>汉密尔顿花园<br>或 Cambridge 午餐</td>
@@ -976,8 +976,6 @@ a:hover { text-decoration: underline; }
           <a href="https://www.lovetaupo.com" target="_blank" class="btn btn-green btn-sm">🌐 陶波旅游</a>
           <a href="https://maps.google.com/?q=Lake+Taupo+NZ" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
         </div>
-      </div>
-    </div>
       </div>
     </div>
 
@@ -1732,6 +1730,61 @@ navLinks.forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+</script>
+
+<script>
+(async function () {
+  const WX = {
+    0:'☀️',1:'🌤️',2:'⛅',3:'🌥️',
+    45:'🌫️',48:'🌫️',
+    51:'🌦️',53:'🌦️',55:'🌦️',
+    61:'🌧️',63:'🌧️',65:'🌧️',
+    71:'❄️',73:'❄️',75:'❄️',77:'❄️',
+    80:'🌧️',81:'🌧️',82:'🌧️',
+    85:'❄️',86:'❄️',
+    95:'⛈️',96:'⛈️',99:'⛈️'
+  };
+  function icon(c){return WX[c]||'🌡️';}
+
+  async function getWx(lat,lon){
+    const u=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}`
+      +`&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum`
+      +`&timezone=Pacific%2FAuckland&forecast_days=16`;
+    const r=await fetch(u);
+    return r.json();
+  }
+
+  function render(d,date){
+    const i=d.daily.time.indexOf(date);
+    if(i<0)return'';
+    const code=d.daily.weathercode[i];
+    const hi=Math.round(d.daily.temperature_2m_max[i]);
+    const lo=Math.round(d.daily.temperature_2m_min[i]);
+    const rain=d.daily.precipitation_sum[i]||0;
+    const r=rain>0?` 💧${rain.toFixed(1)}mm`:'';
+    return `${icon(code)} ${lo}–${hi}°C${r}`;
+  }
+
+  try{
+    const [taupo,whaka,np]=await Promise.all([
+      getWx(-38.68,176.07),
+      getWx(-39.28,175.57),
+      getWx(-39.06,174.08)
+    ]);
+    const days=[
+      {id:'wx-day1',d:taupo, date:'2026-07-07'},
+      {id:'wx-day2',d:taupo, date:'2026-07-08'},
+      {id:'wx-day3',d:whaka, date:'2026-07-09'},
+      {id:'wx-day4',d:np,    date:'2026-07-10'},
+      {id:'wx-day5',d:np,    date:'2026-07-11'},
+      {id:'wx-day6',d:np,    date:'2026-07-12'},
+    ];
+    days.forEach(({id,d,date})=>{
+      const el=document.getElementById(id);
+      if(el){el.innerHTML=render(d,date);}
+    });
+  }catch(e){/* 离线或请求失败时静默 */}
+})();
 </script>
 </body>
 </html>
