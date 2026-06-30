@@ -106,7 +106,8 @@ a:hover { text-decoration: underline; }
 /* DAY TABS */
 .day-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
 .day-tab { padding: 7px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: white; color: var(--text-muted); transition: all 0.15s; }
-.day-tab.active, .day-tab:hover { border-color: var(--green); background: var(--green-tint); color: var(--green); }
+.day-tab:hover { border-color: var(--green); background: var(--green-tint); color: var(--green); }
+.day-tab.active { border-color: var(--green); background: var(--green-tint); color: var(--green); box-shadow: 0 2px 8px rgba(15,76,46,0.15); }
 .day-panel { display: none; }
 .day-panel.active { display: block; }
 
@@ -143,7 +144,28 @@ a:hover { text-decoration: underline; }
 .checklist-items { padding: 8px 20px; }
 .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--bg-tint); }
 .check-item:last-child { border-bottom: none; }
-.check-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--green); margin-top: 3px; flex-shrink: 0; cursor: pointer; }
+.check-item input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 18px; height: 18px; min-width: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+  margin-top: 2px;
+}
+.check-item input[type="checkbox"]:hover { border-color: var(--green-mid); }
+.check-item input[type="checkbox"]:checked { background: var(--green); border-color: var(--green); }
+.check-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px; top: 2px;
+  width: 6px; height: 10px;
+  border: 2px solid white;
+  border-top: none; border-left: none;
+  transform: rotate(45deg);
+}
 .check-item label { font-size: 13px; cursor: pointer; flex: 1; line-height: 1.5; }
 .check-item label.checked { text-decoration: line-through; color: var(--text-light); }
 .check-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
@@ -252,7 +274,13 @@ a:hover { text-decoration: underline; }
 /* BACK TO TOP */
 #backTop { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 12px rgba(15,76,46,0.3); opacity: 0; transition: opacity 0.3s; z-index: 50; }
 #backTop.visible { opacity: 1; }
-#backTop:hover { background: var(--green-mid); }
+#backTop:hover { background: var(--green-mid); transform: translateY(-2px) scale(1.08); box-shadow: 0 6px 20px rgba(15,76,46,0.28); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: var(--bg-tint); margin-top: 0; }
+.footer-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.footer-brand { font-family: "Noto Serif SC", "PingFang SC", serif; font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.footer-meta { font-size: 13px; color: var(--text-muted); letter-spacing: 0.02em; line-height: 1.7; }
 
 /* PRINT */
 @media print {
@@ -1519,14 +1547,14 @@ a:hover { text-decoration: underline; }
     <div class="rest-card" style="border:2px solid var(--green);">
       <div class="rest-name" style="color:var(--green);">🚡 Sky Waka 缆车</div>
       <div class="rest-name-en">Scenic Gondola · 高达 2,020m 观景台</div>
-      <div style="margin-bottom:8px;"><span class="tag" style="background:#dbeafe;color:#1d4ed8;">北岛最高观景台</span><span class="tag" style="background:#dbeafe;color:#1d4ed8;">必体验</span></div>
+      <div style="margin-bottom:8px;"><span class="tag" style="background:var(--green-tint);color:var(--green);">北岛最高观景台</span><span class="tag" style="background:var(--green-tint);color:var(--green);">必体验</span></div>
       <div class="rest-dish">🏔️ <strong>体验：</strong>全程 1.8km，乘坐新西兰最先进的缆车从 Happy Valley 上升到 2,020m 的 Knoll Ridge Chalet，360° 全景俯瞰中央高原火山带</div>
       <div class="rest-dish" style="margin-top:8px;">
         <table style="width:100%;font-size:13px;border-collapse:collapse;">
-          <tr style="background:#dbeafe;"><td style="padding:4px 8px;">成人 (18+)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">$59</td></tr>
-          <tr><td style="padding:4px 8px;">青少年 (Youth)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">$39</td></tr>
-          <tr style="background:#dbeafe;"><td style="padding:4px 8px;">婴幼儿 (Infant)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">免费</td></tr>
-          <tr><td style="padding:4px 8px;">家庭套票 (2A+2Y)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">$169</td></tr>
+          <tr style="background:var(--bg-tint);"><td style="padding:4px 8px;">成人 (18+)</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$59</td></tr>
+          <tr><td style="padding:4px 8px;">青少年 (Youth)</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$39</td></tr>
+          <tr style="background:var(--bg-tint);"><td style="padding:4px 8px;">婴幼儿 (Infant)</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">免费</td></tr>
+          <tr><td style="padding:4px 8px;">家庭套票 (2A+2Y)</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$169</td></tr>
         </table>
       </div>
       <div class="rest-info-row" style="margin-top:8px;">⏰ 09:00–16:00（冬季，视天气）</div>
@@ -1744,9 +1772,14 @@ a:hover { text-decoration: underline; }
 <!-- BACK TO TOP -->
 <button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<footer style="text-align:center;padding:32px 16px;color:#9CA3AF;font-size:12px;background:white;margin-top:32px;border-top:1px solid #F3F4F6;">
-  <p>🇳🇿 新西兰自驾游 · 2026年7月7–12日 · 一家三口</p>
-  <p style="margin-top:4px;">价格为估算参考，实际以预订时为准。出行前请确认各景点及餐厅最新营业状态。</p>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">新西兰 · 2026年7月</div>
+    <div class="footer-meta">
+      一家三口自驾 · 奥克兰 · 陶波 · Whakapapa · 新普利茅斯<br>
+      价格为估算参考，实际以预订时为准。出行前请确认各景点及餐厅最新营业状态。
+    </div>
+  </div>
 </footer>
 
 <script>
