@@ -4,246 +4,278 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新西兰自驾游 · 2026年7月 · 一家三口</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --green: #1B6B45;
-  --green-light: #2D8A5C;
-  --green-pale: #E8F5EE;
-  --amber: #F59E0B;
-  --amber-light: #FEF3C7;
-  --blue: #0EA5E9;
-  --blue-pale: #E0F2FE;
-  --red: #EF4444;
-  --gray: #6B7280;
-  --gray-light: #F3F4F6;
-  --bg: #F7F9F7;
-  --white: #FFFFFF;
-  --text: #1A1A1A;
-  --text-light: #4B5563;
-  --radius: 12px;
-  --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  --shadow-hover: 0 6px 24px rgba(0,0,0,0.14);
+  /* Primary - deep forest green */
+  --green:       #0F4C2E;
+  --green-mid:   #1A6640;
+  --green-tint:  #F0F7F3;
+  /* Semantic only - warnings / danger */
+  --warn:        #D97706;
+  --warn-bg:     #FFFBEB;
+  --danger:      #DC2626;
+  --danger-bg:   #FEF2F2;
+  /* Neutrals - warm gray */
+  --text:        #111827;
+  --text-muted:  #6B7280;
+  --text-light:  #9CA3AF;
+  --bg:          #FAFAF9;
+  --bg-tint:     #F5F5F3;
+  --border:      #E5E7EB;
+  --white:       #FFFFFF;
+  /* Radius */
+  --radius-sm:   6px;
+  --radius:      10px;
+  --radius-lg:   16px;
+  /* Shadows */
+  --shadow:      0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 16px rgba(15,76,46,0.12);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+body { font-family: "Inter", "PingFang SC", -apple-system, "Helvetica Neue", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px; }
 a { color: var(--green); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* HERO */
 .hero {
-  background: linear-gradient(135deg, #0B3D27 0%, #1B6B45 50%, #2D8A5C 100%);
-  color: white; padding: 60px 24px 40px; text-align: center;
+  background: #0F4C2E;
+  color: white;
+  padding: 64px 32px 52px;
+  position: relative;
+  overflow: hidden;
 }
-.hero-badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; display: inline-block; padding: 4px 16px; font-size: 13px; margin-bottom: 16px; }
-.hero h1 { font-size: clamp(24px, 5vw, 40px); font-weight: 700; margin-bottom: 8px; }
-.hero-sub { font-size: 16px; opacity: 0.85; margin-bottom: 28px; }
-.hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
-.hero-stat { text-align: center; }
-.hero-stat .num { font-size: 28px; font-weight: 700; color: var(--amber); }
-.hero-stat .label { font-size: 12px; opacity: 0.8; margin-top: 2px; }
-.offline-tip { background: rgba(245,158,11,0.2); border: 1px solid var(--amber); border-radius: 8px; padding: 10px 16px; margin: 24px auto 0; max-width: 600px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='340' viewBox='0 0 1200 340'%3E%3Cpath d='M0 280 Q100 240 180 260 Q260 280 340 220 Q420 160 500 200 Q580 240 660 180 Q740 120 820 160 Q900 200 980 140 Q1060 80 1140 120 L1200 100 L1200 340 L0 340Z' fill='rgba(255,255,255,0.03)'/%3E%3Cpath d='M0 300 Q80 270 160 285 Q240 300 320 250 Q400 200 480 230 Q560 260 640 210 Q720 160 800 190 Q880 220 960 170 Q1040 120 1120 155 L1200 130 L1200 340 L0 340Z' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: bottom;
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 1080px; margin: 0 auto; }
+.hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+.hero h1 { font-family: "Noto Serif SC", "PingFang SC", serif; font-size: clamp(26px, 4vw, 44px); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 36px; max-width: 560px; line-height: 1.6; }
+.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.hero-stat { }
+.hero-stat .num { font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; color: white; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.hero-stat .label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; font-weight: 500; }
+.offline-tip { background: rgba(217,119,6,0.15); border: 1px solid rgba(217,119,6,0.4); border-radius: var(--radius-sm); padding: 10px 16px; margin-top: 28px; font-size: 13px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 8px; max-width: 600px; }
 
 /* NAV */
-.nav-wrap { position: sticky; top: 0; z-index: 100; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.nav { display: flex; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.nav-wrap { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 1px solid var(--border); }
+.nav { display: flex; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; height: 52px; align-items: stretch; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 .nav::-webkit-scrollbar { display: none; }
-.nav a { flex: 0 0 auto; padding: 14px 18px; font-size: 13px; font-weight: 500; color: var(--gray); white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+.nav a { flex: 0 0 auto; padding: 0 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; display: flex; align-items: center; }
 .nav a:hover, .nav a.active { color: var(--green); border-bottom-color: var(--green); text-decoration: none; }
 
 /* SECTIONS */
-.section { padding: 48px 16px; max-width: 1080px; margin: 0 auto; }
-.section-title { font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-.section-desc { color: var(--text-light); margin-bottom: 28px; font-size: 15px; }
-.divider { border: none; border-top: 1px solid #E5E7EB; margin: 48px 0; }
+.section { padding: 56px 16px; max-width: 1080px; margin: 0 auto; }
+.section-title { font-family: "Noto Serif SC", "PingFang SC", serif; font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+.section-desc { color: var(--text-muted); margin-bottom: 32px; font-size: 14px; line-height: 1.6; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
 /* CARDS */
-.card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; transition: box-shadow 0.2s; }
-.card:hover { box-shadow: var(--shadow-hover); }
+.card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 20px; transition: border-color 0.2s, box-shadow 0.2s; }
+.card:hover { border-color: var(--green-mid); box-shadow: var(--shadow-hover); }
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 
 /* TAGS */
-.tag { display: inline-block; border-radius: 20px; padding: 3px 10px; font-size: 12px; font-weight: 500; margin: 2px; }
-.tag-green { background: var(--green-pale); color: var(--green); }
-.tag-amber { background: var(--amber-light); color: #92400E; }
-.tag-blue { background: var(--blue-pale); color: #0369A1; }
-.tag-red { background: #FEE2E2; color: #991B1B; }
-.tag-gray { background: var(--gray-light); color: #374151; }
+.tag { display: inline-block; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600; margin: 2px; letter-spacing: 0.02em; }
+.tag-green { background: var(--green-tint); color: var(--green); }
+.tag-amber { background: var(--warn-bg); color: #92400E; }
+.tag-blue { background: var(--green-tint); color: var(--green); }
+.tag-red { background: var(--danger-bg); color: #991B1B; }
+.tag-gray { background: var(--bg-tint); color: #374151; border: 1px solid var(--border); }
 
 /* BUTTONS */
-.btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; }
+.btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; border: none; text-decoration: none; white-space: nowrap; }
 .btn-green { background: var(--green); color: white; }
-.btn-green:hover { background: var(--green-light); color: white; text-decoration: none; }
-.btn-outline { background: white; color: var(--green); border: 1.5px solid var(--green); }
-.btn-outline:hover { background: var(--green-pale); text-decoration: none; }
-.btn-amber { background: var(--amber); color: white; }
-.btn-amber:hover { background: #D97706; color: white; text-decoration: none; }
+.btn-green:hover { background: var(--green-mid); color: white; text-decoration: none; }
+.btn-outline { background: white; color: var(--green); border: 1px solid var(--green); }
+.btn-outline:hover { background: var(--green-tint); text-decoration: none; }
+.btn-amber { background: var(--warn); color: white; }
+.btn-amber:hover { background: #B45309; color: white; text-decoration: none; }
 .btn-sm { padding: 5px 12px; font-size: 12px; }
 
 /* DAY TABS */
-.day-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
-.day-tab { padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid #E5E7EB; background: white; color: var(--gray); transition: all 0.2s; }
-.day-tab.active, .day-tab:hover { border-color: var(--green); background: var(--green-pale); color: var(--green); }
+.day-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.day-tab { padding: 7px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: white; color: var(--text-muted); transition: all 0.15s; }
+.day-tab.active, .day-tab:hover { border-color: var(--green); background: var(--green-tint); color: var(--green); }
 .day-panel { display: none; }
 .day-panel.active { display: block; }
 
 /* DAY CARD */
-.day-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-.day-header { background: linear-gradient(135deg, var(--green), var(--green-light)); color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: flex-start; }
-.day-title { font-size: 18px; font-weight: 700; }
-.day-meta { font-size: 13px; opacity: 0.85; margin-top: 4px; }
-.day-drive { background: rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 12px; font-size: 13px; text-align: center; white-space: nowrap; }
-.day-body { padding: 20px; }
-.day-step { display: flex; gap: 12px; margin-bottom: 16px; }
-.day-step-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--green-pale); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
-.day-step-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-.day-step-content p { font-size: 13px; color: var(--text-light); }
-.day-tip { background: var(--amber-light); border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 16px; font-size: 13px; }
+.day-card { background: white; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
+.day-header { background: var(--green); color: white; padding: 20px 24px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.day-title { font-family: "Noto Serif SC", "PingFang SC", serif; font-size: 18px; font-weight: 700; }
+.day-meta { font-size: 13px; opacity: 0.75; margin-top: 5px; font-weight: 400; }
+.day-drive { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-sm); padding: 8px 14px; font-size: 13px; text-align: center; white-space: nowrap; flex-shrink: 0; }
+.day-body { padding: 24px; }
+.day-step { display: flex; gap: 14px; margin-bottom: 20px; }
+.day-step:last-of-type { margin-bottom: 0; }
+.day-step-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--green-tint); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.day-step-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; color: var(--text); }
+.day-step-content p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.day-tip { background: var(--warn-bg); border-left: 3px solid var(--warn); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 12px 16px; margin-top: 20px; font-size: 13px; line-height: 1.6; }
 .day-tip strong { color: #92400E; }
-.day-cost { background: var(--green-pale); border-radius: 8px; padding: 12px 16px; margin-top: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
-.day-cost .cost-num { font-size: 18px; font-weight: 700; color: var(--green); }
+.day-cost { background: var(--green-tint); border-radius: var(--radius-sm); padding: 14px 18px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+.day-cost .cost-num { font-size: 20px; font-weight: 700; color: var(--green); font-variant-numeric: tabular-nums; }
 
 /* OVERVIEW TABLE */
-.overview-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-.overview-table th { background: var(--green); color: white; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; }
-.overview-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #F3F4F6; vertical-align: top; }
+.overview-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.overview-table th { background: var(--green); color: white; padding: 13px 16px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.overview-table td { padding: 13px 16px; font-size: 13px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
 .overview-table tr:last-child td { border-bottom: none; }
-.overview-table tr:nth-child(even) td { background: #FAFAFA; }
+.overview-table tr:nth-child(even) td { background: var(--bg); }
 .star-day td { background: #FFFBEB !important; }
 
 /* CHECKLIST */
-.checklist-group { background: white; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 16px; overflow: hidden; }
-.checklist-header { background: var(--green-pale); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-.checklist-header h3 { font-size: 15px; font-weight: 600; color: var(--green); display: flex; align-items: center; gap: 8px; }
-.checklist-progress { font-size: 12px; color: var(--green); font-weight: 600; }
-.checklist-items { padding: 12px 20px; }
-.check-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F3F4F6; }
+.checklist-group { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 12px; overflow: hidden; }
+.checklist-header { background: var(--bg-tint); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border-bottom: 1px solid var(--border); }
+.checklist-header h3 { font-size: 14px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.checklist-progress { font-size: 12px; color: var(--text-muted); font-weight: 600; background: var(--border); padding: 2px 8px; border-radius: 10px; }
+.checklist-items { padding: 8px 20px; }
+.check-item { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--bg-tint); }
 .check-item:last-child { border-bottom: none; }
-.check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); margin-top: 2px; flex-shrink: 0; cursor: pointer; }
-.check-item label { font-size: 13px; cursor: pointer; flex: 1; }
-.check-item label.checked { text-decoration: line-through; color: var(--gray); }
-.check-sub { font-size: 12px; color: var(--gray); margin-top: 2px; }
-.urgent { color: var(--red) !important; font-weight: 600; }
+.check-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--green); margin-top: 3px; flex-shrink: 0; cursor: pointer; }
+.check-item label { font-size: 13px; cursor: pointer; flex: 1; line-height: 1.5; }
+.check-item label.checked { text-decoration: line-through; color: var(--text-light); }
+.check-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+.urgent { color: var(--danger) !important; font-weight: 600; }
 
 /* ATTRACTION CARD */
-.attr-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: box-shadow 0.2s; }
-.attr-card:hover { box-shadow: var(--shadow-hover); }
-.attr-icon { background: linear-gradient(135deg, var(--green-pale), var(--blue-pale)); padding: 24px; text-align: center; font-size: 40px; }
-.attr-body { padding: 16px; }
-.attr-name { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
-.attr-name-en { font-size: 12px; color: var(--gray); margin-bottom: 8px; }
-.attr-desc { font-size: 13px; color: var(--text-light); margin-bottom: 12px; line-height: 1.5; }
-.attr-info { display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; font-size: 12px; margin-bottom: 12px; }
-.attr-info .info-label { color: var(--gray); font-weight: 500; white-space: nowrap; }
+.attr-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+.attr-card:hover { border-color: var(--green-mid); box-shadow: var(--shadow-hover); }
+.attr-icon { background: var(--green-tint); padding: 28px; text-align: center; font-size: 36px; }
+.attr-body { padding: 18px; }
+.attr-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; color: var(--text); }
+.attr-name-en { font-size: 11px; color: var(--text-light); margin-bottom: 10px; letter-spacing: 0.01em; }
+.attr-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+.attr-info { display: grid; grid-template-columns: auto 1fr; gap: 5px 10px; font-size: 12px; margin-bottom: 14px; }
+.attr-info .info-label { color: var(--text-light); font-weight: 500; white-space: nowrap; }
 .attr-info .info-value { color: var(--text); }
 .attr-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* HOTEL CARD */
-.hotel-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-.hotel-badge { background: var(--green); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; display: inline-block; border-radius: 4px; margin-bottom: 8px; }
-.hotel-badge.alt { background: var(--gray); }
-.hotel-badge.premium { background: var(--amber); }
-.hotel-name { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
-.hotel-name-en { font-size: 12px; color: var(--gray); margin-bottom: 10px; }
-.hotel-price { font-size: 22px; font-weight: 700; color: var(--green); }
-.hotel-price span { font-size: 13px; font-weight: 400; color: var(--gray); }
-.hotel-reason { background: var(--green-pale); border-radius: 8px; padding: 10px 12px; font-size: 13px; color: #1A3A2A; margin: 12px 0; }
+.hotel-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
+.hotel-badge { background: var(--green); color: white; font-size: 11px; font-weight: 600; padding: 3px 8px; display: inline-block; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.02em; }
+.hotel-badge.alt { background: var(--text-muted); }
+.hotel-badge.premium { background: var(--warn); }
+.hotel-name { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+.hotel-name-en { font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+.hotel-price { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hotel-price span { font-size: 13px; font-weight: 400; opacity: 0.7; }
+.hotel-reason { background: var(--green-tint); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 13px; color: var(--text); margin: 14px 0; line-height: 1.6; }
 .hotel-features { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
-.hotel-feature { font-size: 12px; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
-.hotel-policy { font-size: 12px; color: var(--gray); margin: 8px 0; }
+.hotel-feature { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.hotel-policy { font-size: 12px; color: var(--text-muted); margin: 8px 0; }
 .hotel-policy.warn { color: #92400E; }
-.hotel-header { padding: 20px 20px 12px; }
-.hotel-body { padding: 0 20px 20px; }
+.hotel-header { padding: 22px 22px 14px; }
+.hotel-body { padding: 0 22px 22px; }
 
 /* CITY SECTION */
-.city-label { font-size: 18px; font-weight: 700; color: var(--green); margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--green-pale); display: flex; align-items: center; gap: 8px; }
+.city-label { font-size: 13px; font-weight: 700; color: var(--green); margin: 32px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* RESTAURANT CARD */
-.rest-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; transition: box-shadow 0.2s; }
-.rest-card:hover { box-shadow: var(--shadow-hover); }
-.rest-name { font-size: 15px; font-weight: 700; }
-.rest-name-en { font-size: 12px; color: var(--gray); margin-bottom: 8px; }
-.rest-dish { font-size: 13px; color: var(--text-light); margin: 6px 0; }
+.rest-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 18px; transition: border-color 0.2s, box-shadow 0.2s; }
+.rest-card:hover { border-color: var(--green-mid); box-shadow: var(--shadow-hover); }
+.rest-name { font-size: 15px; font-weight: 700; color: var(--text); }
+.rest-name-en { font-size: 11px; color: var(--text-light); margin-bottom: 10px; }
+.rest-dish { font-size: 13px; color: var(--text-muted); margin: 5px 0; line-height: 1.55; }
 .rest-dish strong { color: var(--text); }
-.rest-warning { background: #FEF3C7; border-left: 3px solid var(--amber); padding: 8px 12px; border-radius: 0 6px 6px 0; font-size: 12px; margin: 8px 0; color: #92400E; }
-.rest-info-row { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray); margin: 4px 0; }
+.rest-warning { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 8px 12px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 12px; margin: 8px 0; color: #92400E; }
+.rest-info-row { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-light); margin: 3px 0; }
 
 /* HOT SPRING */
 .spring-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 600px) { .spring-compare { grid-template-columns: 1fr; } }
-.spring-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-.spring-header { padding: 20px; background: linear-gradient(135deg, #0369A1, #0EA5E9); color: white; }
+.spring-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
+.spring-header { padding: 20px; background: var(--green); color: white; }
 .spring-header h3 { font-size: 17px; font-weight: 700; }
-.spring-header .spring-en { font-size: 12px; opacity: 0.8; }
+.spring-header .spring-en { font-size: 12px; opacity: 0.7; }
 .spring-body { padding: 18px; }
-.spring-price-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; }
+.spring-price-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
 .spring-price-row:last-child { border-bottom: none; }
 .spring-price-val { font-weight: 600; color: var(--green); }
-.spring-feature { display: flex; gap: 6px; font-size: 13px; padding: 5px 0; }
+.spring-feature { display: flex; gap: 6px; font-size: 13px; padding: 5px 0; color: var(--text-muted); }
 
 /* SNOW SECTION */
-.snow-card { background: linear-gradient(135deg, #1B6B45, #0369A1); color: white; border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
-.snow-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-.shuttle-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; margin-top: 12px; }
-.shuttle-table th { padding: 10px 14px; font-size: 13px; background: rgba(0,0,0,0.2); text-align: left; }
-.shuttle-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.snow-card { background: var(--green); color: white; border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+.snow-card h3 { font-family: "Noto Serif SC", "PingFang SC", serif; font-size: 18px; font-weight: 700; margin-bottom: 14px; }
+.shuttle-table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.08); border-radius: var(--radius-sm); overflow: hidden; margin-top: 14px; }
+.shuttle-table th { padding: 10px 14px; font-size: 12px; background: rgba(0,0,0,0.15); text-align: left; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.shuttle-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .ticket-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
-.ticket-item { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 14px; text-align: center; }
-.ticket-price { font-size: 24px; font-weight: 700; color: var(--amber); }
-.ticket-label { font-size: 13px; opacity: 0.9; margin-top: 4px; }
-.ticket-note { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+.ticket-item { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 16px; text-align: center; }
+.ticket-price { font-size: 26px; font-weight: 700; color: white; font-variant-numeric: tabular-nums; }
+.ticket-label { font-size: 13px; opacity: 0.8; margin-top: 5px; }
+.ticket-note { font-size: 11px; opacity: 0.6; margin-top: 3px; }
 .gear-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 12px; }
-.gear-item { background: white; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text); }
+.gear-item { background: white; border-radius: var(--radius-sm); padding: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text); }
 
 /* BUDGET */
-.budget-summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
-.budget-stat { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; text-align: center; }
-.budget-stat .b-num { font-size: 28px; font-weight: 700; color: var(--green); }
-.budget-stat .b-label { font-size: 13px; color: var(--gray); margin-top: 4px; }
-.budget-bar-wrap { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px; }
-.budget-bar-title { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
-.bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-.bar-label { width: 100px; font-size: 13px; color: var(--text-light); flex-shrink: 0; text-align: right; }
-.bar-track { flex: 1; background: #F3F4F6; border-radius: 8px; height: 24px; overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 8px; display: flex; align-items: center; padding-left: 8px; font-size: 12px; font-weight: 600; color: white; transition: width 0.5s; }
-.bar-amount { width: 80px; font-size: 13px; font-weight: 600; color: var(--text); }
-.budget-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-.budget-table th { background: var(--green); color: white; padding: 12px 16px; font-size: 13px; text-align: left; }
-.budget-table td { padding: 11px 16px; font-size: 13px; border-bottom: 1px solid #F3F4F6; }
+.budget-summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.budget-stat { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 22px 20px; }
+.budget-stat .b-num { font-size: 30px; font-weight: 700; color: var(--green); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.budget-stat .b-label { font-size: 12px; color: var(--text-muted); margin-top: 5px; font-weight: 500; }
+.budget-bar-wrap { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; margin-bottom: 16px; }
+.budget-bar-title { font-size: 14px; font-weight: 600; margin-bottom: 18px; color: var(--text); letter-spacing: 0.01em; }
+.bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.bar-label { width: 100px; font-size: 13px; color: var(--text-muted); flex-shrink: 0; text-align: right; }
+.bar-track { flex: 1; background: var(--bg-tint); border-radius: 4px; height: 20px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 600; color: white; transition: width 0.5s; }
+.bar-amount { width: 80px; font-size: 13px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+.budget-table { width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.budget-table th { background: var(--green); color: white; padding: 12px 16px; font-size: 12px; text-align: left; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.budget-table td { padding: 11px 16px; font-size: 13px; border-bottom: 1px solid var(--border); }
 .budget-table tr:last-child td { border-bottom: none; }
-.budget-table .paid { background: #F0FDF4; }
-.budget-table .optional { background: #FFFBEB; }
-.budget-table .total-row td { font-weight: 700; background: var(--green-pale); color: var(--green); font-size: 14px; }
+.budget-table .paid { background: var(--green-tint); }
+.budget-table .optional { background: var(--warn-bg); }
+.budget-table .total-row td { font-weight: 700; background: var(--green-tint); color: var(--green); font-size: 14px; }
 .status-paid { color: #166534; font-weight: 600; }
 .status-core { color: var(--green); }
 .status-opt { color: #92400E; }
 
 /* EMERGENCY */
-.emergency-bar { background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: var(--radius); padding: 16px 20px; margin-bottom: 20px; }
-.emergency-bar h4 { color: #991B1B; font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-.emergency-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.emergency-bar { background: var(--danger-bg); border: 1px solid #FCA5A5; border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px; }
+.emergency-bar h4 { color: #991B1B; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.emergency-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
 .emergency-item { display: flex; flex-direction: column; font-size: 13px; }
-.emergency-item .e-label { color: #6B7280; font-size: 11px; }
-.emergency-item .e-value { font-weight: 600; color: #1A1A1A; }
+.emergency-item .e-label { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+.emergency-item .e-value { font-weight: 600; color: var(--text); margin-top: 2px; }
 
 /* BACK TO TOP */
-#backTop { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: white; border: none; border-radius: 50%; width: 44px; height: 44px; font-size: 18px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.3s; z-index: 50; }
+#backTop { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 12px rgba(15,76,46,0.3); opacity: 0; transition: opacity 0.3s; z-index: 50; }
 #backTop.visible { opacity: 1; }
-#backTop:hover { background: var(--green-light); }
+#backTop:hover { background: var(--green-mid); }
 
 /* PRINT */
 @media print {
   .nav-wrap, #backTop, .btn, .offline-tip { display: none; }
   .section { padding: 24px 8px; }
-  .card, .day-card, .hotel-card { box-shadow: none; border: 1px solid #E5E7EB; }
+  .card, .day-card, .hotel-card { box-shadow: none; }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .spring-compare { grid-template-columns: 1fr; }
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .hero-stats { gap: 20px; }
-  .hero-stat .num { font-size: 22px; }
+  .hero { padding: 48px 20px 40px; }
+  .hero-stats { gap: 24px; }
+  .hero-stat .num { font-size: 24px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .bar-label { width: 70px; font-size: 12px; }
   .bar-amount { width: 60px; }
+  .section { padding: 40px 16px; }
 }
 </style>
 </head>
@@ -251,41 +283,42 @@ a:hover { text-decoration: underline; }
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">🇳🇿 新西兰自驾游 2026</div>
-  <h1>奥克兰 · 陶波 · Whakapapa · 新普利茅斯</h1>
-  <p class="hero-sub">娃爸 · 娃妈 · 娃（6岁）&nbsp;｜&nbsp;2026年7月7日（周二）— 7月12日（周日）· 5晚6天</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="num">6</div><div class="label">天行程</div></div>
-    <div class="hero-stat"><div class="num">1,150</div><div class="label">公里总里程</div></div>
-    <div class="hero-stat"><div class="num">2</div><div class="label">个城市住宿</div></div>
-    <div class="hero-stat"><div class="num">$3,400</div><div class="label">预计总花费 NZD</div></div>
-    <div class="hero-stat"><div class="num">1</div><div class="label">次玩雪日</div></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🇳🇿 新西兰 · 2026年7月</div>
+    <h1>奥克兰 · 陶波 · Whakapapa · 新普利茅斯</h1>
+    <p class="hero-sub">娃爸 · 娃妈 · 娃（6岁）&nbsp; &nbsp;2026年7月7日（周二）至 7月12日（周日）· 5晚6天自驾</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">6</div><div class="label">天行程</div></div>
+      <div class="hero-stat"><div class="num">1,150</div><div class="label">公里总里程</div></div>
+      <div class="hero-stat"><div class="num">2</div><div class="label">城市住宿</div></div>
+      <div class="hero-stat"><div class="num">$3,400</div><div class="label">预计总花费 NZD</div></div>
+      <div class="hero-stat"><div class="num">1</div><div class="label">玩雪日</div></div>
+    </div>
+    <div class="offline-tip">⚠ 山区信号差，建议出发前将此页面保存至本地或截图备用</div>
   </div>
-  <div class="offline-tip">⚠️ 山区信号差，建议出发前将此页面保存至本地或截图备用</div>
 </div>
 
 <!-- NAV -->
 <div class="nav-wrap">
   <nav class="nav">
-    <a href="#overview">🗓️ 行程总览</a>
-    <a href="#daily">📍 逐日行程</a>
-    <a href="#checklist">✅ 行前清单</a>
-    <a href="#attractions">🏔️ 景点介绍</a>
-    <a href="#hotels">🏨 住宿推荐</a>
-    <a href="#restaurants">🍽️ 餐厅推荐</a>
-    <a href="#springs">♨️ 温泉池</a>
-    <a href="#snow">⛷️ 玩雪专区</a>
-    <a href="#budget">💰 费用预算</a>
+    <a href="#overview">行程总览</a>
+    <a href="#daily">逐日行程</a>
+    <a href="#checklist">行前清单</a>
+    <a href="#attractions">景点介绍</a>
+    <a href="#hotels">住宿推荐</a>
+    <a href="#restaurants">餐厅推荐</a>
+    <a href="#snow">玩雪专区</a>
+    <a href="#budget">费用预算</a>
   </nav>
 </div>
 
 <!-- SECTION 1: OVERVIEW -->
 <div id="overview" class="section">
-  <h2 class="section-title">🗓️ 行程总览</h2>
+  <h2 class="section-title">行程总览</h2>
   <p class="section-desc">环线路线：先南下陶波玩雪，再折西至新普利茅斯，最后北返奥克兰；最长单日驾驶约5小时，含充足停留点</p>
 
   <div class="emergency-bar">
-    <h4>🆘 紧急联系（建议截图保存）</h4>
+    <h4>紧急联系（建议截图保存）</h4>
     <div class="emergency-grid">
       <div class="emergency-item"><span class="e-label">新西兰急救</span><span class="e-value">📞 111</span></div>
       <div class="emergency-item"><span class="e-label">Hertz 租车 24h</span><span class="e-value">📞 0800 654 321</span></div>
@@ -297,14 +330,14 @@ a:hover { text-decoration: underline; }
   </div>
 
 
-  <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:16px 20px;margin-top:16px;">
-    <h4 style="margin:0 0 10px;color:#1E40AF;font-size:14px;">🌤️ 实时天气查询（出发前必看）</h4>
+  <div style="background:var(--green-tint);border:1px solid #c3ddd0;border-radius:var(--radius);padding:16px 20px;margin-top:16px;">
+    <h4 style="margin:0 0 10px;color:var(--green);font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">实时天气查询（出发前必看）</h4>
     <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <a href="https://www.metservice.com/towns-cities/regions/taupo/locations/taupo" target="_blank" class="btn btn-outline btn-sm">🌡️ 陶波天气</a>
-      <a href="https://www.whakapapa.com/weather" target="_blank" class="btn btn-outline btn-sm">⛷️ Whakapapa 雪场天气</a>
-      <a href="https://www.j2ski.com/snow_forecast/New_Zealand/Whakapapa_snow.html" target="_blank" class="btn btn-outline btn-sm">❄️ 雪况预报 J2Ski</a>
-      <a href="https://www.snow.nz/area/nz/ruapehu/whakapapa/snow-forecast" target="_blank" class="btn btn-outline btn-sm">🏔️ SnowNZ 预报</a>
-      <a href="https://www.metservice.com/towns-cities/regions/taranaki/locations/new-plymouth" target="_blank" class="btn btn-outline btn-sm">🌧️ 新普利茅斯天气</a>
+      <a href="https://www.metservice.com/towns-cities/regions/taupo/locations/taupo" target="_blank" class="btn btn-outline btn-sm">陶波天气</a>
+      <a href="https://www.whakapapa.com/weather" target="_blank" class="btn btn-outline btn-sm">Whakapapa 雪场天气</a>
+      <a href="https://www.j2ski.com/snow_forecast/New_Zealand/Whakapapa_snow.html" target="_blank" class="btn btn-outline btn-sm">雪况预报 J2Ski</a>
+      <a href="https://www.snow.nz/area/nz/ruapehu/whakapapa/snow-forecast" target="_blank" class="btn btn-outline btn-sm">SnowNZ 预报</a>
+      <a href="https://www.metservice.com/towns-cities/regions/taranaki/locations/new-plymouth" target="_blank" class="btn btn-outline btn-sm">新普利茅斯天气</a>
     </div>
   </div>
 
@@ -324,11 +357,11 @@ a:hover { text-decoration: underline; }
         <td><strong>Day 2</strong><br><span style="font-size:12px;color:#6B7280">7/8 周三</span><div id="wx-day2" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>陶波自由日</td>
         <td>≈0</td>
-        <td>Huka Falls · 湖边散步<br>温泉 · 陶波市区漫游</td>
+        <td>Aratiatia 急流 · 湖边散步<br>陶波市区漫游</td>
         <td>陶波 Taupo</td>
       </tr>
       <tr class="star-day">
-        <td><strong>Day 3 ⭐</strong><br><span style="font-size:12px;color:#6B7280">7/9 周四</span><div id="wx-day3" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
+        <td><strong>Day 3</strong><br><span style="font-size:12px;color:#6B7280">7/9 周四</span><div id="wx-day3" style="font-size:11px;margin-top:5px;color:#374151;min-height:16px;"></div></td>
         <td>陶波 ↔ Whakapapa 日归<br><span style="font-size:12px;color:#6B7280">SH1→SH47，来回约3h</span></td>
         <td>往返3h<br>约180 km</td>
         <td>Snowland 雪橇·堆雪人<br>Sky Waka 缆车（可选）</td>
@@ -353,23 +386,23 @@ a:hover { text-decoration: underline; }
         <td>新普利茅斯 → 奥克兰<br><span style="font-size:12px;color:#6B7280">SH3北上→汉密尔顿→SH1</span></td>
         <td>约 5h<br>370 km</td>
         <td>汉密尔顿花园<br>或 Cambridge 午餐</td>
-        <td>回到家 🏠</td>
+        <td>回到家</td>
       </tr>
     </tbody>
   </table>
-  <p style="font-size:12px;color:#6B7280;margin-top:8px;">📌 还车：7月13日（周一）09:30 Hertz East。还车前一晚在奥克兰加满油，清空车内物品。</p>
+  <p style="font-size:12px;color:#6B7280;margin-top:8px;">还车时间：7月13日（周一）09:30 Hertz East。还车前一晚在奥克兰加满油，清空车内物品。</p>
 </div>
 
 <hr class="divider">
 <!-- SECTION 2: DAILY ITINERARY -->
 <div id="daily" class="section">
-  <h2 class="section-title">📍 逐日详细行程</h2>
+  <h2 class="section-title">逐日详细行程</h2>
   <p class="section-desc">点击下方日期切换，每天含详细安排、加油节点和当日预估花费</p>
 
   <div class="day-tabs">
     <button class="day-tab active" onclick="showDay(1)">Day 1 · 7/7</button>
     <button class="day-tab" onclick="showDay(2)">Day 2 · 7/8</button>
-    <button class="day-tab" onclick="showDay(3)">⭐ Day 3 · 7/9</button>
+    <button class="day-tab" onclick="showDay(3)">Day 3 · 7/9 玩雪</button>
     <button class="day-tab" onclick="showDay(4)">Day 4 · 7/10</button>
     <button class="day-tab" onclick="showDay(5)">Day 5 · 7/11</button>
     <button class="day-tab" onclick="showDay(6)">Day 6 · 7/12</button>
@@ -383,7 +416,7 @@ a:hover { text-decoration: underline; }
           <div class="day-title">Day 1 · 奥克兰 → 陶波</div>
           <div class="day-meta">7月7日（周二）· SH1 南下，全程约 280km，最轻松的一天</div>
         </div>
-        <div class="day-drive">🚗 2.5h<br>280 km</div>
+        <div class="day-drive">2.5h<br>280 km</div>
       </div>
       <div class="day-body">
         <div class="day-step">
@@ -410,8 +443,8 @@ a:hover { text-decoration: underline; }
         <div class="day-step">
           <div class="day-step-icon">🏠</div>
           <div class="day-step-content">
-            <h4>下午抵达陶波，入住酒店</h4>
-            <p>Check in 后沿 Lake Terrace 湖边散步，傍晚湖光山色很美。</p>
+            <h4>下午抵达陶波，入住 The Reef Resort</h4>
+            <p>Check in 后沿 Lake Terrace 湖边散步，傍晚湖光山色很美。酒店就在湖边，温泉浴池可随时泡。</p>
           </div>
         </div>
         <div class="day-step">
@@ -421,7 +454,7 @@ a:hover { text-decoration: underline; }
             <p>Plateau Bar（周二营业）或 Replete Café（营业至 17:00）。明天早起玩雪，今晚早点休息！</p>
           </div>
         </div>
-        <div class="day-tip"><strong>💡 贴士：</strong>今天路程最短，出行最轻松。今晚确认明天 Snowland 时段票和摆渡车预约（nationalparkshuttles.com），并查天气预报（whakapapa.com/weather）。</div>
+        <div class="day-tip"><strong>贴士：</strong>今天路程最短，出行最轻松。今晚确认明天 Snowland 时段票和摆渡车预约（nationalparkshuttles.com），并查天气预报（whakapapa.com/weather）。</div>
         <div class="day-cost">
           <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">午餐 + 油费 + 晚餐</span></div>
           <div class="cost-num">≈ $160</div>
@@ -438,7 +471,7 @@ a:hover { text-decoration: underline; }
           <div class="day-title">Day 2 · 陶波自由日</div>
           <div class="day-meta">7月8日（周三）· 轻松游览，为明天玩雪养精蓄锐</div>
         </div>
-        <div class="day-drive">🚶 自由日<br>≈0 km</div>
+        <div class="day-drive">自由日<br>≈0 km</div>
       </div>
       <div class="day-body">
         <div class="day-step">
@@ -465,8 +498,8 @@ a:hover { text-decoration: underline; }
         <div class="day-step">
           <div class="day-step-icon">♨️</div>
           <div class="day-step-content">
-            <h4>下午可选：AC Baths 或 DeBretts 温泉</h4>
-            <p>也可留到明天（Day 3）玩雪回来再泡——泡温泉解疲劳效果更好！</p>
+            <h4>下午：回酒店泳池放松</h4>
+            <p>The Reef Resort 温泉浴池（40°C）随时可泡，不用出门，泡完晒晒太阳。</p>
           </div>
         </div>
         <div class="day-step">
@@ -476,9 +509,9 @@ a:hover { text-decoration: underline; }
             <p>Plateau Bar（周三营业）或 Brantry Eatery（周三 17:30 起）。饭后确认 Snowland 时段票（7/9）+ 摆渡车预订，明早出发前查天气。</p>
           </div>
         </div>
-        <div class="day-tip"><strong>💡 今日节奏：</strong>上午 Huka Falls → Aratiatia（看 10:00 开闸）→ Craters of the Moon，三处紧凑但不赶；下午湖边漫步放松。全天花费不高，以免费和低价景点为主。</div>
+        <div class="day-tip"><strong>今日节奏：</strong>上午 Huka Falls → Aratiatia（看 10:00 开闸）→ Craters of the Moon，三处紧凑但不赶；下午湖边漫步放松。全天花费不高，以免费和低价景点为主。</div>
         <div class="day-cost">
-          <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">Craters 门票 $15 + 午餐 + 晚餐 + 可选温泉</span></div>
+          <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">午餐 + 晚餐（免费景点日）</span></div>
           <div class="cost-num">≈ $150</div>
         </div>
       </div>
@@ -488,12 +521,12 @@ a:hover { text-decoration: underline; }
   <!-- DAY 3 -->
   <div id="day3" class="day-panel">
     <div class="day-card">
-      <div class="day-header" style="background: linear-gradient(135deg, #0B3D27, #1B6B45, #0369A1);">
+      <div class="day-header">
         <div>
-          <div class="day-title">⭐ Day 3 · Whakapapa 玩雪日（重点）</div>
+          <div class="day-title">Day 3 · Whakapapa 玩雪日（重点）</div>
           <div class="day-meta">7月9日（周四）· 从陶波出发日归，全程不用在雪地开车</div>
         </div>
-        <div class="day-drive">🚗🚌 日归<br>往返约3h</div>
+        <div class="day-drive">日归<br>往返约3h</div>
       </div>
       <div class="day-body">
         <div class="day-step">
@@ -541,13 +574,13 @@ a:hover { text-decoration: underline; }
         <div class="day-step">
           <div class="day-step-icon">♨️</div>
           <div class="day-step-content">
-            <h4>晚上：陶波温泉（推荐）</h4>
-            <p>玩雪回来全身酸痛，AC Baths 或 DeBretts 泡一泡特别治愈。明天一早退房出发，今晚好好放松。</p>
+            <h4>晚上：回礁石度假村泡温泉浴池</h4>
+            <p>玩雪回来直接回酒店，The Reef Resort 地热温泉浴池（40°C）泡一泡，解疲劳效果极好，不用额外花钱。</p>
           </div>
         </div>
-        <div class="day-tip"><strong>⚠️ 天气备案：</strong>若 7/9 关山（大风/暴雪），可与 Day 2（7/8）对调——先玩雪再陶波自由日，不耽误行程。出发前查 <a href="https://www.whakapapa.com/weather" target="_blank" style="color:#1D4ED8;">whakapapa.com/weather</a>。</div>
+        <div class="day-tip"><strong>天气备案：</strong>若 7/9 关山（大风/暴雪），可与 Day 2（7/8）对调——先玩雪再陶波自由日，不耽误行程。出发前查 <a href="https://www.whakapapa.com/weather" target="_blank" style="color:var(--green);">whakapapa.com/weather</a>。</div>
         <div class="day-cost">
-          <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">摆渡车 $110 + Snowland 爸妈 $78 + 娃 免费 + 餐饮 + 油费 + 可选温泉</span></div>
+          <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">摆渡车 $110 + Snowland 爸妈 $78 + 娃 免费 + 餐饮 + 油费</span></div>
           <div class="cost-num">≈ $310</div>
         </div>
       </div>
@@ -562,7 +595,7 @@ a:hover { text-decoration: underline; }
           <div class="day-title">Day 4 · 陶波 → 新普利茅斯</div>
           <div class="day-meta">7月10日（周五）· SH1→奥托罗杭加→Awakino 峡谷→SH3，约 290km</div>
         </div>
-        <div class="day-drive">🚗 3.5h<br>290 km</div>
+        <div class="day-drive">3.5h<br>290 km</div>
       </div>
       <div class="day-body">
         <div class="day-step">
@@ -600,7 +633,7 @@ a:hover { text-decoration: underline; }
             <p>沿 Fitzroy 海滩或 Coastal Walkway 傍晚散步，远眺塔拉纳基山。Devon St 找晚餐。</p>
           </div>
         </div>
-        <div class="day-tip"><strong>💡 贴士：</strong>Awakino 段约 1 小时无信号，提前下载离线地图（Google Maps 离线：陶波、奥托罗杭加、新普利茅斯区域）。</div>
+        <div class="day-tip"><strong>贴士：</strong>Awakino 段约 1 小时无信号，提前下载离线地图（Google Maps 离线：陶波、奥托罗杭加、新普利茅斯区域）。</div>
         <div class="day-cost">
           <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">几维鸟馆门票 + 午餐 + 油费 + 晚餐</span></div>
           <div class="cost-num">≈ $230</div>
@@ -617,7 +650,7 @@ a:hover { text-decoration: underline; }
           <div class="day-title">Day 5 · 新普利茅斯城市轻松日</div>
           <div class="day-meta">7月11日（周六）· 几乎不开车，市区漫游</div>
         </div>
-        <div class="day-drive">🚶 城市日<br>≈0 km</div>
+        <div class="day-drive">城市日<br>≈0 km</div>
       </div>
       <div class="day-body">
         <div class="day-step">
@@ -648,7 +681,7 @@ a:hover { text-decoration: underline; }
             <p>位于普凯阿里基博物馆建筑内，地中海风味，周六 09:00–22:00。建议提前订位。</p>
           </div>
         </div>
-        <div class="day-tip"><strong>💡 贴士：</strong>7月冬天塔拉纳基山顶可能大风，不建议带 娃 上山。今天以「市区+海滨+公园」为主，明天（Day 6）要开车5小时回奥克兰，今晚别太晚。</div>
+        <div class="day-tip"><strong>贴士：</strong>7月冬天塔拉纳基山顶可能大风，不建议带 娃 上山。今天以「市区+海滨+公园」为主，明天（Day 6）要开车5小时回奥克兰，今晚别太晚。</div>
         <div class="day-cost">
           <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">餐饮 + 可选博物馆门票 + 咖啡</span></div>
           <div class="cost-num">≈ $120</div>
@@ -665,7 +698,7 @@ a:hover { text-decoration: underline; }
           <div class="day-title">Day 6 · 新普利茅斯 → 奥克兰（回家）</div>
           <div class="day-meta">7月12日（周日）· SH3 北上经汉密尔顿，全程约 370km</div>
         </div>
-        <div class="day-drive">🚗 5h<br>370 km</div>
+        <div class="day-drive">5h<br>370 km</div>
       </div>
       <div class="day-body">
         <div class="day-step">
@@ -703,7 +736,7 @@ a:hover { text-decoration: underline; }
             <p>提前 10 分钟到，检查有无划痕（对比取车时照片），油表满格，顺利完成！</p>
           </div>
         </div>
-        <div class="day-tip"><strong>💡 贴士：</strong>今天路程最长（370km），建议早出发。带娃长途在她睡午觉时段穿越最省心。今晚不需要住宿，明早从容还车。</div>
+        <div class="day-tip"><strong>贴士：</strong>今天路程最长（370km），建议早出发。带娃长途在她睡午觉时段穿越最省心。今晚不需要住宿，明早从容还车。</div>
         <div class="day-cost">
           <div><strong>当日预估花费</strong><br><span style="font-size:12px;color:#6B7280">油费（新普利茅斯→奥克兰）+ 午餐</span></div>
           <div class="cost-num">≈ $165</div>
@@ -716,18 +749,18 @@ a:hover { text-decoration: underline; }
 <hr class="divider">
 <!-- SECTION 3: CHECKLIST -->
 <div id="checklist" class="section">
-  <h2 class="section-title">✅ 行前必办清单</h2>
+  <h2 class="section-title">行前必办清单</h2>
   <p class="section-desc">按优先级排列，勾选后状态自动保存在本次会话中</p>
 
   <div class="checklist-group">
     <div class="checklist-header" onclick="toggleGroup(this)">
-      <h3>🔴 立即预订（越早越好）</h3>
+      <h3>立即预订（越早越好）</h3>
       <span class="checklist-progress" id="prog-urgent">0/3</span>
     </div>
     <div class="checklist-items" data-group="urgent">
       <div class="check-item">
-        <input type="checkbox" id="c1" onchange="updateProgress('urgent')">
-        <label for="c1"><strong class="urgent">陶波住宿</strong>（7/7–7/10，3晚）<div class="check-sub">首选 Lake Taupo Holiday Resort（地热温泉+水滑梯，3晚享冬季折扣），备选 DeBretts Spa Resort（住客直接泡池）</div></label>
+        <input type="checkbox" id="c1" onchange="updateProgress('urgent')" checked>
+        <label for="c1"><strong style="color:var(--green)">✅ 陶波住宿已预订</strong>（7/7–7/10，3晚）<div class="check-sub">The Reef Resort Taupo · 湖边豪华公寓，自带地热温泉热水池（40°C）+ 加热泳池（36°C）</div></label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c2" onchange="updateProgress('urgent')">
@@ -742,7 +775,7 @@ a:hover { text-decoration: underline; }
 
   <div class="checklist-group">
     <div class="checklist-header" onclick="toggleGroup(this)">
-      <h3>🟡 出发前完成</h3>
+      <h3>出发前完成</h3>
       <span class="checklist-progress" id="prog-before">0/8</span>
     </div>
     <div class="checklist-items" data-group="before">
@@ -783,7 +816,7 @@ a:hover { text-decoration: underline; }
 
   <div class="checklist-group">
     <div class="checklist-header" onclick="toggleGroup(this)">
-      <h3>🎒 玩雪装备清单</h3>
+      <h3>玩雪装备清单</h3>
       <span class="checklist-progress" id="prog-gear">0/8</span>
     </div>
     <div class="checklist-items" data-group="gear">
@@ -800,7 +833,7 @@ a:hover { text-decoration: underline; }
 
   <div class="checklist-group">
     <div class="checklist-header" onclick="toggleGroup(this)">
-      <h3>🚗 车内必备物品</h3>
+      <h3>车内必备物品</h3>
       <span class="checklist-progress" id="prog-car">0/6</span>
     </div>
     <div class="checklist-items" data-group="car">
@@ -817,7 +850,7 @@ a:hover { text-decoration: underline; }
 <hr class="divider">
 <!-- SECTION 4: ATTRACTIONS -->
 <div id="attractions" class="section">
-  <h2 class="section-title">🏔️ 景点介绍</h2>
+  <h2 class="section-title">景点介绍</h2>
   <p class="section-desc">所有景点含中英双语名称、开放时间、门票价格，点击按钮直达官网</p>
   <div class="grid-3">
 
@@ -834,11 +867,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">👨‍👩‍👧 家庭票</span><span class="info-value">2大人+3儿童 $75</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 4 途中（陶波→新普利茅斯）</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童友好</span><span class="tag tag-amber">🕐 建议1.5h</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童友好</span><span class="tag tag-amber">建议 1.5h</span></div>
         <div class="attr-actions">
-          <a href="https://www.kiwihouse.org.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.kiwihouse.org.nz/purchase-tickets" target="_blank" class="btn btn-outline btn-sm">🎟️ 购票</a>
-          <a href="https://maps.google.com/?q=Otorohanga+Kiwi+House" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.kiwihouse.org.nz" target="_blank" class="btn btn-green btn-sm">官网 &amp; 购票</a>
+          <a href="https://maps.google.com/?q=Otorohanga+Kiwi+House" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -854,10 +886,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 票价</span><span class="info-value">免费</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 4–5，新普利茅斯市区</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童友好</span><span class="tag tag-green">🆓 免费</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童友好</span><span class="tag tag-green">免费</span></div>
         <div class="attr-actions">
-          <a href="https://www.newplymouthnz.com/explore/coastal-walkway" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://maps.google.com/?q=New+Plymouth+Coastal+Walkway" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.newplymouthnz.com/explore/coastal-walkway" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=New+Plymouth+Coastal+Walkway" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -873,10 +905,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 票价</span><span class="info-value">免费，停车也免费</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 4–5，新普利茅斯市区</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童友好</span><span class="tag tag-green">🆓 免费</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童友好</span><span class="tag tag-green">免费</span></div>
         <div class="attr-actions">
-          <a href="https://pukekura.org.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://maps.google.com/?q=Pukekura+Park+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://pukekura.org.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=Pukekura+Park+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -892,10 +924,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 票价</span><span class="info-value">永久展免费（特展或收费）</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 4–5，65 St Aubyn St, New Plymouth</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童友好</span><span class="tag tag-green">🆓 免费</span><span class="tag tag-blue">☔ 雨天首选</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童友好</span><span class="tag tag-green">免费</span><span class="tag tag-blue">雨天首选</span></div>
         <div class="attr-actions">
-          <a href="https://pukeariki.com" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://maps.google.com/?q=Puke+Ariki+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://pukeariki.com" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=Puke+Ariki+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -912,10 +944,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 儿童</span><span class="info-value">16岁以下免费</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 4–5，42 Queen St, New Plymouth</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童免费</span><span class="tag tag-blue">☔ 雨天备选</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童免费</span><span class="tag tag-blue">雨天备选</span></div>
         <div class="attr-actions">
-          <a href="https://govettbrewster.com" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://maps.google.com/?q=Len+Lye+Centre+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://govettbrewster.com" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=Len+Lye+Centre+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -931,13 +963,13 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 成人</span><span class="info-value">约 NZD $39/场次</span>
           <span class="info-label">🎟️ 青少年</span><span class="info-value">约 NZD $25（5–17岁）</span>
           <span class="info-label">🎟️ 娃</span><span class="info-value">⭐ 季票已购，免费 $0</span>
-          <span class="info-label">⚠️ 年龄限制</span><span class="info-value">Tubing 限8岁以上；雪橇区 娃 可玩</span>
+          <span class="info-label">年龄限制</span><span class="info-value">Tubing 限8岁以上；雪橇区 娃 可玩</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 2，Mt Ruapehu, Happy Valley</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-amber">⚠️ 须提前预订</span><span class="tag tag-green">✅ 儿童友好</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-amber">须提前预订</span><span class="tag tag-green">儿童友好</span></div>
         <div class="attr-actions">
-          <a href="https://www.whakapapa.com/snowland" target="_blank" class="btn btn-green btn-sm">🌐 官网 & 购票</a>
-          <a href="https://maps.google.com/?q=Happy+Valley+Whakapapa" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.whakapapa.com/snowland" target="_blank" class="btn btn-green btn-sm">官网 & 购票</a>
+          <a href="https://maps.google.com/?q=Happy+Valley+Whakapapa" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -953,9 +985,9 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 冬季票价</span><span class="info-value">约 成人$59 / 青少年$39 / 家庭$169（建议出行前官网确认）</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 2，Mt Ruapehu Whakapapa</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-amber">🔖 可选项目</span><span class="tag tag-blue">🏔️ 2,020m 全景</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-amber">可选项目</span><span class="tag tag-blue">2,020m 全景</span></div>
         <div class="attr-actions">
-          <a href="https://www.whakapapa.com/passes/sightseeing-and-sledding" target="_blank" class="btn btn-green btn-sm">🌐 官网 & 购票</a>
+          <a href="https://www.whakapapa.com/passes/sightseeing-and-sledding" target="_blank" class="btn btn-green btn-sm">官网 & 购票</a>
         </div>
       </div>
     </div>
@@ -971,10 +1003,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 票价</span><span class="info-value">免费</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 1–3，陶波市区 Lake Terrace 沿湖</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童友好</span><span class="tag tag-green">🆓 免费</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童友好</span><span class="tag tag-green">免费</span></div>
         <div class="attr-actions">
-          <a href="https://www.lovetaupo.com" target="_blank" class="btn btn-green btn-sm">🌐 陶波旅游</a>
-          <a href="https://maps.google.com/?q=Lake+Taupo+NZ" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.lovetaupo.com" target="_blank" class="btn btn-green btn-sm">陶波旅游</a>
+          <a href="https://maps.google.com/?q=Lake+Taupo+NZ" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -990,10 +1022,10 @@ a:hover { text-decoration: underline; }
           <span class="info-label">🎟️ 票价</span><span class="info-value">免费</span>
           <span class="info-label">📍 地点</span><span class="info-value">Day 2，Aratiatia Rd，距 Huka Falls 5 分钟</span>
         </div>
-        <div style="margin-bottom:10px;"><span class="tag tag-green">✅ 儿童友好</span><span class="tag tag-green">🆓 免费</span></div>
+        <div style="margin-bottom:10px;"><span class="tag tag-green">儿童友好</span><span class="tag tag-green">免费</span></div>
         <div class="attr-actions">
-          <a href="https://www.lovetaupo.com/en/see-do/nature-outdoors/aratiatia-rapids/" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://maps.google.com/?q=Aratiatia+Rapids+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.lovetaupo.com/en/see-do/nature-outdoors/aratiatia-rapids/" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=Aratiatia+Rapids+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
@@ -1006,326 +1038,301 @@ a:hover { text-decoration: underline; }
 <hr class="divider">
 <!-- SECTION 5: HOTELS -->
 <div id="hotels" class="section">
-  <h2 class="section-title">🏨 住宿推荐</h2>
+  <h2 class="section-title">住宿推荐</h2>
   <p class="section-desc">两城市住宿推荐，按到达顺序排列，含房型、参考价、推荐理由、停车与取消政策</p>
 
-  <div class="city-label">📍 陶波 Taupo · 7/7–7/10（3晚）♨️ 三家均自带地热温泉，玩雪回来直接泡</div>
+  <div class="city-label">陶波 Taupo · 7/7–7/10（3晚）已预订：The Reef Resort Taupo</div>
+  <div class="grid-3">
+    <div class="hotel-card" style="border:2px solid var(--green);grid-column: 1 / -1;">
+      <div class="hotel-header" style="background:var(--green);">
+        <div class="hotel-badge" style="background:rgba(255,255,255,0.15);">已预订确认</div>
+        <div class="hotel-name" style="color:#fff;">礁石度假村</div>
+        <div class="hotel-name-en">The Reef Resort · Taupo Lake Edge Luxury</div>
+        <div class="hotel-price" style="color:#fff;">NZD $805 <span>/ 3晚（已确认）约 $268/晚</span></div>
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-reason">湖边绝佳位置，自带天然地热温泉热水浴池（40°C，全年恒温）+ 加热淡水泳池（冬季 36°C），Day 3 玩雪回来直接泡。自助式豪华公寓含厨房、浴袍、免费停车、无限 WiFi，BBQ 区可自助烧烤。</div>
+        <div class="hotel-features">
+          <span class="hotel-feature">地热温泉浴池 40°C</span>
+          <span class="hotel-feature">加热泳池 36°C</span>
+          <span class="hotel-feature">绝对湖边位置</span>
+          <span class="hotel-feature">带厨房公寓</span>
+          <span class="hotel-feature">免费停车</span>
+          <span class="hotel-feature">BBQ 区</span>
+        </div>
+        <div class="hotel-policy" style="color:var(--green);font-weight:600;">已预订确认，7/7 入住 · 7/10 退房</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="https://www.reefresort.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=The+Reef+Resort+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── 陶波酒店周边 ───────────────────────────────────────────── -->
+  <div class="city-label">The Reef Resort 周边便利信息</div>
+  <div class="grid-3">
+    <div class="rest-card">
+      <div class="rest-name">Pak 'n Save 陶波</div>
+      <div class="rest-name-en">Pak 'n Save Taupo · 大型超市</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">采购首选</span><span class="tag tag-green">价格最低</span></div>
+      <div class="rest-dish"><strong>距酒店：</strong>约 2.5km，开车 5 分钟，湖滨路北行转 Ruapehu St</div>
+      <div class="rest-dish">🍱 全品类：生鲜、熟食、零食、饮料、冷冻食品，适合在带厨房公寓自己做饭</div>
+      <div class="rest-info-row">⏰ 每日 07:00–21:00</div>
+      <div class="rest-info-row">📞 07 376 0999</div>
+      <div class="rest-info-row">📍 105–131 Ruapehu St, Taupo</div>
+      <div style="margin-top:12px;">
+        <a href="https://maps.google.com/?q=Pak+n+Save+Taupo+Ruapehu+Street" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name">Vine Eatery &amp; Bar</div>
+      <div class="rest-name-en">37 Tuwharetoa St · 地中海融合料理</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">酒店推荐</span><span class="tag tag-green">Tapas 共享</span></div>
+      <div class="rest-dish">🍷 <strong>招牌：</strong>NZ + 地中海风味 tapas、主菜、精选葡萄酒。可 charge back 到房间</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $30–50/人</div>
+      <div class="rest-info-row">⏰ 每日 11:00–23:00</div>
+      <div class="rest-info-row">📍 37 Tuwharetoa St, Taupo（酒店步行 10 分钟）</div>
+      <div style="margin-top:12px;">
+        <a href="https://vineeatery.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Vine+Eatery+Bar+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name">Dixie Browns</div>
+      <div class="rest-name-en">Taupo Town Centre · 全天候轻松餐厅</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">早午晚三餐</span><span class="tag tag-green">亲子友好</span></div>
+      <div class="rest-dish">🥓 <strong>供应：</strong>早餐、午餐、晚餐，轻松友好氛围，儿童餐可选，可外送</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–35/人</div>
+      <div class="rest-info-row">⏰ 早开至深夜，每日营业</div>
+      <div class="rest-info-row">📍 Taupo 市中心，距酒店约 20 分钟湖边步行</div>
+      <div style="margin-top:12px;">
+        <a href="http://www.dixiebrowns.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Dixie+Browns+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 新普利茅斯住宿 Day 4–5 ─────────────────────────────────── -->
+  <div class="city-label">新普利茅斯 New Plymouth · Day 4–5（7/10 入住 → 7/12 退房，2晚）待预订</div>
   <div class="grid-3">
     <div class="hotel-card">
-      <div class="hotel-header">
-        <div class="hotel-badge">⭐ 首选</div>
-        <div class="hotel-name">陶波湖度假公园</div>
-        <div class="hotel-name-en">Lake Taupo Holiday Resort</div>
-        <div class="hotel-price">NZD $207–276 <span>/ 晚（3晚折扣后）</span></div>
+      <div class="hotel-header" style="background:var(--green);">
+        <div class="hotel-badge">首选推荐</div>
+        <div class="hotel-name" style="color:#fff;">千禧海滨酒店</div>
+        <div class="hotel-name-en">Millennium Hotel New Plymouth Waterfront</div>
+        <div class="hotel-price" style="color:#fff;">约 NZD $150–220 <span>/ 晚 · 请在官网核实 7 月实价</span></div>
       </div>
       <div class="hotel-body">
-        <div class="hotel-reason">推荐理由：自带地热温泉泳池 + 热带风格大泳池 + 水上滑梯 + 泳池边餐厅，娃 可以在这里玩大半天。住3晚享冬季折扣（最高25%），带独立厨房的家庭别墅可自己做早餐省钱，Day 3 玩雪回来直接下池子泡。</div>
+        <div class="hotel-reason">市中心海滨位置，正对塔斯曼海，步行可达 Puke Ariki 博物馆、Len Lye 艺术中心、海滨步道及主要餐厅。酒店自带餐厅酒吧、免费 WiFi，停车位近在咫尺。</div>
         <div class="hotel-features">
-          <span class="hotel-feature">♨️ 地热温泉泳池</span>
-          <span class="hotel-feature">🎢 水上滑梯</span>
-          <span class="hotel-feature">🍹 泳池边餐厅</span>
-          <span class="hotel-feature">🏠 家庭别墅带厨房</span>
-          <span class="hotel-feature">💰 3晚最大冬季折扣</span>
+          <span class="hotel-feature">海滨正对位置</span>
+          <span class="hotel-feature">酒店内餐厅</span>
+          <span class="hotel-feature">市中心步行圈</span>
+          <span class="hotel-feature">停车场</span>
+          <span class="hotel-feature">免费 WiFi</span>
         </div>
-        <div class="hotel-policy">🚗 停车：免费</div>
-        <div class="hotel-policy">🍳 早餐：不含，厨房可自理</div>
+        <div class="hotel-policy warn">待预订 · 请查询 7/10–7/12 实时价格与可用性</div>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.laketauporesort.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.booking.com/hotel/nz/lake-taupo-holiday-resort.html" target="_blank" class="btn btn-outline btn-sm">📅 预订</a>
-          <a href="https://maps.google.com/?q=Lake+Taupo+Holiday+Resort" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.millenniumhotels.com/en/new-plymouth/millennium-hotel-new-plymouth-waterfront/" target="_blank" class="btn btn-green btn-sm">官网预订</a>
+          <a href="https://maps.google.com/?q=Millennium+Hotel+New+Plymouth+Waterfront" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
-
     <div class="hotel-card">
-      <div class="hotel-header">
-        <div class="hotel-badge alt">备选 A</div>
-        <div class="hotel-name">德布瑞特斯温泉度假村</div>
-        <div class="hotel-name-en">Taupo DeBretts Spa Resort</div>
-        <div class="hotel-price">NZD $150–220 <span>/ 晚</span></div>
+      <div class="hotel-header" style="background:#1A3A2A;">
+        <div class="hotel-badge" style="background:rgba(255,255,255,0.15);">精品历史酒店</div>
+        <div class="hotel-name" style="color:#fff;">德文传统酒店</div>
+        <div class="hotel-name-en">The Devon Hotel · A Heritage Hotel</div>
+        <div class="hotel-price" style="color:#fff;">约 NZD $130–190 <span>/ 晚 · 请在官网核实</span></div>
       </div>
       <div class="hotel-body">
-        <div class="hotel-reason">推荐理由：就住在 DeBretts 温泉园区内，住客可以直接泡池子（费用含入或折扣），省去单独买票。有儿童专属水上乐园（小滑梯+喷水），8岁以下须家长陪同。全年365天开放，价格比 Holiday Resort 低一档。</div>
+        <div class="hotel-reason">NP 最具历史感的精品酒店，近百年历史建筑。备有水疗、会议设施，步行 5 分钟到 Pukekura Park 公园和市中心。含早餐选项，适合家庭入住。</div>
         <div class="hotel-features">
-          <span class="hotel-feature">♨️ 地热温泉（住客优惠）</span>
-          <span class="hotel-feature">🛝 儿童水上乐园</span>
-          <span class="hotel-feature">🅿️ 免费停车</span>
-          <span class="hotel-feature">🏠 家庭套房/小屋</span>
-          <span class="hotel-feature">📅 全年365天</span>
+          <span class="hotel-feature">百年历史建筑</span>
+          <span class="hotel-feature">水疗中心</span>
+          <span class="hotel-feature">近 Pukekura Park</span>
+          <span class="hotel-feature">停车场</span>
+          <span class="hotel-feature">早餐选项</span>
         </div>
-        <div class="hotel-policy">🚗 停车：免费</div>
-        <div class="hotel-policy">💡 预订时确认住客温泉使用政策</div>
+        <div class="hotel-policy warn">待预订 · 请查询 7/10–7/12 实时价格与可用性</div>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.taupodebretts.co.nz/accommodation" target="_blank" class="btn btn-green btn-sm">🌐 住宿官网</a>
-          <a href="https://www.booking.com/hotel/nz/taupo-debretts-spa-resort.html" target="_blank" class="btn btn-outline btn-sm">📅 预订</a>
-          <a href="https://maps.google.com/?q=Taupo+DeBretts+Spa+Resort" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.devonhotel.co.nz" target="_blank" class="btn btn-green btn-sm">官网预订</a>
+          <a href="https://maps.google.com/?q=The+Devon+Hotel+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
-
     <div class="hotel-card">
-      <div class="hotel-header">
-        <div class="hotel-badge premium">升级选项</div>
-        <div class="hotel-name">希尔顿陶波湖酒店</div>
-        <div class="hotel-name-en">Hilton Lake Taupo</div>
-        <div class="hotel-price">NZD $268–422 <span>/ 晚</span></div>
+      <div class="hotel-header" style="background:#0A3520;">
+        <div class="hotel-badge" style="background:rgba(255,255,255,0.15);">精品套房</div>
+        <div class="hotel-name" style="color:#fff;">国王皇后套房酒店</div>
+        <div class="hotel-name-en">King and Queen Hotel Suites</div>
+        <div class="hotel-price" style="color:#fff;">约 NZD $200–260 <span>/ 晚 · 请在官网核实</span></div>
       </div>
       <div class="hotel-body">
-        <div class="hotel-reason">推荐理由：唯一5星级，湖景阳台视野绝佳，自带地热温泉设施，1–3卧室公寓适合家庭。服务精致，玩雪后在这里泡温泉 + 看湖景是极佳收尾体验。</div>
+        <div class="hotel-reason">NP 市中心精品套房，空间宽敞适合家庭，含 42 寸大屏电视、免费 WiFi，步行即达主要景点和餐厅。装修现代时尚，口碑评分高。</div>
         <div class="hotel-features">
-          <span class="hotel-feature">⭐ 5星级</span>
-          <span class="hotel-feature">🏞️ 湖景阳台</span>
-          <span class="hotel-feature">♨️ 地热温泉设施</span>
-          <span class="hotel-feature">🏠 1–3卧公寓</span>
+          <span class="hotel-feature">市中心步行圈</span>
+          <span class="hotel-feature">宽敞套房</span>
+          <span class="hotel-feature">42″ 大屏电视</span>
+          <span class="hotel-feature">免费 WiFi</span>
         </div>
-        <div class="hotel-policy">🍳 早餐：约 NZD $39/人（额外收费）</div>
-        <div class="hotel-policy">🛏️ 加床：$60/晚</div>
+        <div class="hotel-policy warn">待预订 · 请查询 7/10–7/12 实时价格与可用性</div>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.hilton.com/en/hotels/akllthi-hilton-lake-taupo/" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.booking.com/hotel/nz/hilton-lake-taupo.html" target="_blank" class="btn btn-outline btn-sm">📅 预订</a>
-          <a href="https://maps.google.com/?q=Hilton+Lake+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+          <a href="https://www.booking.com/hotel/nz/king-and-queen-hotel-suites.html" target="_blank" class="btn btn-green btn-sm">Booking.com</a>
+          <a href="https://maps.google.com/?q=King+and+Queen+Hotel+Suites+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="city-label">📍 新普利茅斯 New Plymouth · 7/10–7/12（2晚）</div>
-  <div class="grid-3">
-    <div class="hotel-card">
-      <div class="hotel-header">
-        <div class="hotel-badge">⭐ 首选</div>
-        <div class="hotel-name">奥托洛吉汽车旅馆</div>
-        <div class="hotel-name-en">Auto Lodge Motor Inn</div>
-        <div class="hotel-price">NZD $190–230 <span>/ 晚</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">推荐理由：室内温水泳池+热水浴池，冬天玩完海滩回来泡个热水池，娃 和大人都开心。家庭房宽敞，近 Fitzroy 海滩步行可达，性价比高。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">🏊 室内温水泳池</span>
-          <span class="hotel-feature">🌡️ 热水浴池</span>
-          <span class="hotel-feature">🅿️ 免费停车</span>
-          <span class="hotel-feature">📶 免费WiFi</span>
-          <span class="hotel-feature">🏖️ 近Fitzroy海滩</span>
-        </div>
-        <div class="hotel-policy">🏠 房型：家庭房（双床或大床+单床）</div>
-        <div class="hotel-policy">🚗 停车：免费，场地停车</div>
-        <div class="hotel-policy">❌ 取消政策：部分房价提供免费取消，预订时注意选择</div>
-        <div class="hotel-policy">🍳 早餐：不含，周边咖啡馆多</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.autolodge.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.booking.com/hotel/nz/auto-lodge-motor-inn.html" target="_blank" class="btn btn-outline btn-sm">📅 预订</a>
-          <a href="https://maps.google.com/?q=Auto+Lodge+Motor+Inn+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-header">
-        <div class="hotel-badge alt">备选 A</div>
-        <div class="hotel-name">德文遗产酒店</div>
-        <div class="hotel-name-en">The Devon Hotel (A Heritage Hotel)</div>
-        <div class="hotel-price">NZD $210–260 <span>/ 晚</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">推荐理由：评分 9.4/10，市中心位置绝佳，有游泳池和餐厅，全程不用出门找晚餐，适合想要一站式便利的家庭。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">🏊 泳池设施</span>
-          <span class="hotel-feature">🍽️ 酒店餐厅</span>
-          <span class="hotel-feature">🅿️ 免费停车（须预约）</span>
-          <span class="hotel-feature">📶 免费WiFi</span>
-          <span class="hotel-feature">🏙️ 市中心</span>
-        </div>
-        <div class="hotel-policy">🏠 房型：皇后+单人床，可加折叠床</div>
-        <div class="hotel-policy">🚗 停车：免费，须提前告知前台预留</div>
-        <div class="hotel-policy">🍳 早餐：可选，成人 $35 / 儿童 $20（额外收费）</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.devonhotel.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.booking.com/hotel/nz/the-devon-and-conference-centre.html" target="_blank" class="btn btn-outline btn-sm">📅 预订</a>
-          <a href="https://maps.google.com/?q=The+Devon+Hotel+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-header">
-        <div class="hotel-badge alt">备选 B · 经济</div>
-        <div class="hotel-name">火烈鸟汽车旅馆</div>
-        <div class="hotel-name-en">Flamingo Motel</div>
-        <div class="hotel-price">NZD $90–170 <span>/ 晚</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">推荐理由：室内+室外温水泳池，儿童游乐区，价格最亲民，非常适合家庭。还配备 EV 充电桩。是三家中最省钱的选项。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">🏊 室内+室外温水泳池</span>
-          <span class="hotel-feature">🛝 儿童游乐区</span>
-          <span class="hotel-feature">🅿️ 免费停车</span>
-          <span class="hotel-feature">⚡ EV充电</span>
-          <span class="hotel-feature">💰 最经济实惠</span>
-        </div>
-        <div class="hotel-policy">🏠 房型：家庭房，带厨房套房可选</div>
-        <div class="hotel-policy">🚗 停车：免费（有限车位）</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://flamingomotel.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.booking.com/hotel/nz/flamingo-motel.html" target="_blank" class="btn btn-outline btn-sm">📅 预订</a>
-          <a href="https://maps.google.com/?q=Flamingo+Motel+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <hr class="divider">
 <!-- SECTION 6: RESTAURANTS -->
 <div id="restaurants" class="section">
-  <h2 class="section-title">🍽️ 餐厅推荐</h2>
-  <p class="section-desc">按行程日期顺序排列，含咖啡馆、中餐、本地餐厅推荐。出发前建议致电小城餐厅确认营业。</p>
+  <h2 class="section-title">餐厅推荐</h2>
+  <p class="section-desc">按日期顺序排列，含营业时间、人均消费、预订建议</p>
 
-  <!-- ── Day 1 途中 ──────────────────────────────────────────────── -->
-  <div class="city-label">🚗 途中 · Day 1（奥克兰 → 陶波）剑桥 Cambridge / Tirau</div>
-  <div class="grid-2">
-    <div class="rest-card">
-      <div class="rest-name">五雄鹿餐厅</div>
-      <div class="rest-name-en">Five Stags Leamington · Cambridge</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 1 午餐</span><span class="tag tag-green">✅ 亲子友好</span></div>
-      <div class="rest-dish">🍺 <strong>供应：</strong>pub 风格料理、汉堡、薯条、儿童餐</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–35/人</div>
-      <div class="rest-info-row">⏰ 每日 12:00 至深夜</div>
-      <div class="rest-info-row">📍 546 Tirau Road, Leamington, Cambridge</div>
-      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=Five+Stags+Leamington+Cambridge+NZ" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-      </div>
-    </div>
-    <div class="rest-card">
-      <div class="rest-name">Tirau 小镇路边咖啡馆</div>
-      <div class="rest-name-en">Tirau Village Cafés</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 1 途中小憩</span></div>
-      <div class="rest-dish">☕ <strong>供应：</strong>咖啡、简餐、三明治，放放腿歇一歇</div>
-      <div class="rest-dish">🐑 Tirau 波纹铁皮大绵羊建筑，娃 会觉得很有趣！</div>
-      <div class="rest-info-row">📍 SH1 沿线，Tirau 镇内多家可选</div>
-    </div>
-  </div>
-
-  <!-- ── 陶波 Day 1–3 ──────────────────────────────────────────── -->
-  <div class="city-label">📍 陶波 Taupo · Day 1–3（7/7 周二 — 7/9 周四）</div>
+  <!-- ── 陶波 Day 1 ──────────────────────────────────────────────── -->
+  <div class="city-label">陶波 · Day 1（7/7 周二）晚餐</div>
   <div class="grid-3">
     <div class="rest-card">
-      <div class="rest-name">瑞普雷特咖啡馆</div>
-      <div class="rest-name-en">Replete Café & Store</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">早午餐首选</span><span class="tag tag-amber">Day 1–2</span></div>
-      <div class="rest-dish">☕ <strong>招牌：</strong>精品咖啡、早午餐、熟食沙拉、自制糕点</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $15–25/人</div>
-      <div class="rest-info-row">⏰ 周一至五 08:00–17:00，周六日 08:00–16:00</div>
-      <div class="rest-info-row">📞 <a href="tel:+6473773011">07 377 3011</a></div>
-      <div class="rest-info-row">📍 45 HeuHeu Street, Taupo</div>
+      <div class="rest-name">Vine Eatery &amp; Bar</div>
+      <div class="rest-name-en">37 Tuwharetoa St · NZ 地中海融合</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 1 晚餐首选</span><span class="tag tag-green">酒店推荐</span></div>
+      <div class="rest-dish">🍷 <strong>招牌：</strong>Tapas 拼盘、NZ 牛排、地中海风味小食，葡萄酒选择丰富</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $35–55/人</div>
+      <div class="rest-info-row">⏰ 每日 11:00–23:00</div>
+      <div class="rest-info-row">📞 07 378 5704</div>
+      <div class="rest-info-row">📍 37 Tuwharetoa St, Taupo（距酒店步行 10 分钟）</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://replete.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-        <a href="https://maps.google.com/?q=Replete+Cafe+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://vineeatery.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Vine+Eatery+Bar+37+Tuwharetoa+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
-
     <div class="rest-card">
-      <div class="rest-name">陶波湖畔下午咖啡</div>
-      <div class="rest-name-en">Lakefront Cafés · Taupo</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">☕ 下午随走随选</span><span class="tag tag-amber">Day 2 Aratiatia 后</span></div>
-      <div class="rest-dish">☕ Taupo 湖边 Lake Terrace 一带有数家咖啡馆，点击下方地图选评分最高的当天开门的</div>
-      <div class="rest-dish">💡 Aratiatia 急流看完约 10:30，正好找个湖边位子坐坐，边喝咖啡边看湖</div>
-      <div class="rest-info-row">📍 Lake Terrace / Tongariro St, Taupo 湖畔一带</div>
+      <div class="rest-name">The Bistro</div>
+      <div class="rest-name-en">Taupo · 欧式平价餐厅</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 1 晚餐备选</span><span class="tag tag-green">亲子友好</span></div>
+      <div class="rest-dish">🍝 <strong>招牌：</strong>欧式正餐、意大利面、牛排、儿童菜单，价格亲民</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $25–40/人</div>
+      <div class="rest-info-row">⏰ 周一至日 12:00–21:00</div>
+      <div class="rest-info-row">📍 Taupo 市中心</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=cafe+near+Lake+Taupo+waterfront" target="_blank" class="btn btn-outline btn-sm">📍 搜附近咖啡馆</a>
+        <a href="https://thebistro.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=The+Bistro+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
-
     <div class="rest-card">
-      <div class="rest-name">一号中国餐厅</div>
-      <div class="rest-name-en">No.1 China Restaurant · Taupo</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-red">🥢 中餐首选</span><span class="tag tag-green">✅ 亲子友好</span></div>
-      <div class="rest-dish">🥢 <strong>招牌：</strong>粤式料理、炒饭炒面、甜酸肉，陶波开业最久的中餐厅</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–30/人</div>
-      <div class="rest-dish">💡 Day 3 玩雪回来太累不想折腾，直接来这里最安心，周四（7/9）正常营业</div>
+      <div class="rest-name">绍兴饭店（No.1 China）</div>
+      <div class="rest-name-en">2/29 Tongariro St · 中式正餐</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">中餐选项</span><span class="tag tag-green">真实中餐</span></div>
+      <div class="rest-dish">🥢 <strong>招牌：</strong>炒菜、汤品、主食、家常中餐，让孩子吃熟悉的味道</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–35/人</div>
       <div class="rest-info-row">⏰ 周二至日 11:30–14:30 / 17:00–21:30，周一休息</div>
-      <div class="rest-info-row">📍 Tongariro Street, Taupo CBD</div>
-      <div class="rest-warning">⚠️ 周一不营业，Day 1–3（周二/三/四）均可</div>
+      <div class="rest-info-row">📞 07 378 9588</div>
+      <div class="rest-info-row">📍 2/29 Tongariro Street, Taupo</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://www.firsttable.co.nz/taupo/no-1-china-restaurant" target="_blank" class="btn btn-green btn-sm">🌐 官网/订位</a>
-        <a href="https://maps.google.com/?q=No+1+China+Restaurant+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-      </div>
-    </div>
-
-    <div class="rest-card">
-      <div class="rest-name">高原酒吧餐厅</div>
-      <div class="rest-name-en">Plateau Bar + Eatery</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">午晚餐推荐</span><span class="tag tag-blue">湖景餐厅</span></div>
-      <div class="rest-dish">🥩 <strong>招牌：</strong>新西兰现代料理、精选牛排、湖景用餐体验</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $40–60/人</div>
-      <div class="rest-warning">⚠️ 周一及周日不营业。7/7 周二、7/8 周三、7/9 周四均可，须提前订位！</div>
-      <div class="rest-info-row">⏰ 周二至六 11:30–21:00，周一周日休息</div>
-      <div class="rest-info-row">📞 <a href="tel:+6473772425">07 377 2425</a>（建议提前订位）</div>
-      <div class="rest-info-row">📍 64 Tuwharetoa St, Taupo（近湖边）</div>
-      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://plateautaupo.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-        <a href="https://maps.google.com/?q=Plateau+Bar+Eatery+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-      </div>
-    </div>
-
-    <div class="rest-card">
-      <div class="rest-name">布兰特里餐厅</div>
-      <div class="rest-name-en">Brantry Eatery</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-amber">精致晚餐</span><span class="tag tag-red">仅晚餐</span></div>
-      <div class="rest-dish">🍷 <strong>招牌：</strong>新西兰精致料理，本地食材，季节性菜单</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $50–70/人</div>
-      <div class="rest-warning">⚠️ 仅晚餐（17:30起），周一不营业。Day 1–3（周二/三/四）均可，须提前订位！</div>
-      <div class="rest-info-row">⏰ 周二至日 17:30–20:30，周一休息</div>
-      <div class="rest-info-row">📞 <a href="tel:+6473780484">07 378 0484</a>（建议提前订位）</div>
-      <div class="rest-info-row">📍 45 Rifle Range Rd, Taupo</div>
-      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://www.brantryeatery.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-        <a href="https://maps.google.com/?q=Brantry+Eatery+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://www.firsttable.co.nz/taupo/no-1-china-restaurant" target="_blank" class="btn btn-green btn-sm">预订</a>
+        <a href="https://maps.google.com/?q=No+1+China+Restaurant+29+Tongariro+Street+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
   </div>
 
-  <!-- ── Day 4 途中 ──────────────────────────────────────────────── -->
-  <div class="city-label">🚗 途中 En Route · Day 4（陶波 → 新普利茅斯）</div>
-  <div class="grid-2">
+  <!-- ── 陶波 Day 2 ──────────────────────────────────────────────── -->
+  <div class="city-label">陶波 · Day 2（7/8 周三）咖啡 &amp; 午餐</div>
+  <div class="grid-3">
     <div class="rest-card">
-      <div class="rest-name">奥托罗杭加几维鸟馆咖啡厅</div>
-      <div class="rest-name-en">Kiwi House Café · Otorohanga</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-amber">Day 4 途中</span><span class="tag tag-green">✅ 亲子友好</span></div>
-      <div class="rest-dish">☕ <strong>供应：</strong>简餐、三明治、咖啡、蛋糕</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $12–18/人</div>
-      <div class="rest-info-row">⏰ 09:00–16:30（随鸟馆开放）</div>
-      <div class="rest-info-row">📍 Otorohanga Kiwi House 内</div>
-      <div class="rest-info-row">💡 入馆后即可使用，很方便</div>
+      <div class="rest-name">Dixie Browns</div>
+      <div class="rest-name-en">Taupo Town Centre · 全天候餐厅</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 2 早/午餐</span><span class="tag tag-green">亲子友好</span></div>
+      <div class="rest-dish">🥓 <strong>招牌：</strong>全天早餐、汉堡、沙拉、儿童菜单。轻松氛围，不需预订</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $15–28/人</div>
+      <div class="rest-info-row">⏰ 早餐开始至深夜，每日营业</div>
+      <div class="rest-info-row">📍 Taupo 市中心（距酒店 20 分钟湖边步行）</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://www.kiwihouse.org.nz" target="_blank" class="btn btn-green btn-sm">🌐 鸟馆官网</a>
-        <a href="https://maps.google.com/?q=Otorohanga+Kiwi+House" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="http://www.dixiebrowns.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Dixie+Browns+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
-
     <div class="rest-card">
-      <div class="rest-name">白饭鱼小馆</div>
-      <div class="rest-name-en">Whitebait Inn · Mokau</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-amber">Day 4 途中</span><span class="tag tag-green">✅ 亲子友好</span></div>
-      <div class="rest-dish">🐟 <strong>招牌：</strong>炸鱼薯条、鱼饼汉堡、冰淇淋</div>
-      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $15–20/人</div>
-      <div class="rest-warning">⚠️ 7月非白饭鱼正季，炸鱼薯条仍供应，现捕白饭鱼不保证。</div>
-      <div class="rest-info-row">⏰ 07:00–18:00（全年）</div>
-      <div class="rest-info-row">📞 <a href="tel:+6467529713">06 752 9713</a>（出发前建议致电确认）</div>
-      <div class="rest-info-row">📍 55 State Highway 3, Mokau</div>
+      <div class="rest-name">陶波湖畔下午咖啡</div>
+      <div class="rest-name-en">Lake Taupo Waterfront Cafés</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 2 下午茶</span><span class="tag tag-green">湖景</span></div>
+      <div class="rest-dish">☕ <strong>供应：</strong>精品咖啡、蛋糕、三明治，湖边露台座位，看孩子玩耍的好地方</div>
+      <div class="rest-dish">沿 Lake Terrace 向北走即可找到多家咖啡馆</div>
+      <div class="rest-info-row">⏰ 一般 08:00–16:00</div>
+      <div class="rest-info-row">📍 Lake Terrace / Tongariro St 附近，Taupo 湖滨</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://whitebaitinn.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-        <a href="https://maps.google.com/?q=Whitebait+Inn+Mokau" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://maps.google.com/?q=cafe+near+Lake+Taupo+waterfront" target="_blank" class="btn btn-outline btn-sm">搜索附近咖啡馆</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name">Edgewater 湖畔餐厅</div>
+      <div class="rest-name-en">Edgewater Restaurant · 获奖湖景餐厅</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 2 晚餐</span><span class="tag tag-green">湖景精选</span></div>
+      <div class="rest-dish">🏆 <strong>招牌：</strong>获奖国际料理，正对湖景，食材每日新鲜，适合特别纪念晚餐</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $45–70/人</div>
+      <div class="rest-info-row">⏰ 晚餐 17:30 起，建议提前预订</div>
+      <div class="rest-info-row">📍 湖滨，Taupo 市区</div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://maps.google.com/?q=Edgewater+Restaurant+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 陶波 Day 3 ──────────────────────────────────────────────── -->
+  <div class="city-label">陶波 · Day 3（7/9 周四）玩雪回来晚餐</div>
+  <div class="grid-3">
+    <div class="rest-card">
+      <div class="rest-name">Incredible India</div>
+      <div class="rest-name-en">Taupo · 印度料理</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 3 晚餐</span><span class="tag tag-green">热饭暖身</span></div>
+      <div class="rest-dish">🍛 <strong>招牌：</strong>咖喱、烤馕、印度香饭，玩雪回来喝碗热汤、吃顿热乎的最合适</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–35/人</div>
+      <div class="rest-info-row">⏰ 每日 17:00–21:30</div>
+      <div class="rest-info-row">📍 Taupo 市中心</div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://www.incredibleindia.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Incredible+India+Restaurant+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name">Thai Delight</div>
+      <div class="rest-name-en">Taupo · 泰国料理</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 3 晚餐备选</span><span class="tag tag-green">可外带</span></div>
+      <div class="rest-dish">🍜 <strong>招牌：</strong>泰式炒面、咖喱、汤粉，可堂食或外带，玩雪后暖胃佳选</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $18–30/人</div>
+      <div class="rest-info-row">⏰ 每日 11:30–14:00 / 17:00–21:00</div>
+      <div class="rest-info-row">📍 Taupo 市中心</div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="http://www.thaidelight.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Thai+Delight+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name">Pak 'n Save 自炊</div>
+      <div class="rest-name-en">带厨房公寓 · 懒人首选</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 3 省事选项</span><span class="tag tag-green">最省钱</span></div>
+      <div class="rest-dish">🏠 <strong>方案：</strong>玩雪累了不想出门？Pak 'n Save 采购熟食/半成品，回酒店厨房简单加热</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $10–20/人</div>
+      <div class="rest-info-row">⏰ 每日 07:00–21:00</div>
+      <div class="rest-info-row">📍 105–131 Ruapehu St, Taupo</div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://maps.google.com/?q=Pak+n+Save+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
   </div>
 
   <!-- ── 新普利茅斯 Day 4–5 ──────────────────────────────────────── -->
-  <div class="city-label">📍 新普利茅斯 New Plymouth · Day 4–5（7/10 周五 — 7/11 周六）</div>
+  <div class="city-label">新普利茅斯 New Plymouth · Day 4–5（7/10 周五 — 7/11 周六）</div>
   <div class="grid-3">
     <div class="rest-card">
       <div class="rest-name">莫妮卡餐厅</div>
       <div class="rest-name-en">Monica's Eatery</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">早午餐首选</span><span class="tag tag-green">✅ 亲子友好</span></div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">早午餐首选</span><span class="tag tag-green">亲子友好</span></div>
       <div class="rest-dish">🥞 <strong>招牌：</strong>早午餐、松饼、特色咖啡、新鲜果汁</div>
       <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $15–25/人</div>
       <div class="rest-info-row">⏰ 周一至五 07:00–14:30，周六日 08:00–15:00</div>
@@ -1333,8 +1340,8 @@ a:hover { text-decoration: underline; }
       <div class="rest-info-row">📍 Corner King & Queen St, New Plymouth</div>
       <div class="rest-info-row">📅 10人以上需预订</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://monicaseatery.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-        <a href="https://maps.google.com/?q=Monica's+Eatery+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://monicaseatery.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Monica's+Eatery+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
 
@@ -1344,11 +1351,11 @@ a:hover { text-decoration: underline; }
       <div style="margin-bottom:8px;"><span class="tag tag-green">☕ 海景咖啡</span><span class="tag tag-amber">Day 5 海岸步道后</span></div>
       <div class="rest-dish">☕ <strong>招牌：</strong>精品咖啡、早午餐、新鲜果昔，正对大海</div>
       <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $15–25/人</div>
-      <div class="rest-dish">💡 Coastal Walkway 散步后直接坐在这里看海，娃 最喜欢海边喝东西</div>
+      <div class="rest-dish">Coastal Walkway 散步后直接坐在这里看海，娃 最喜欢海边喝东西</div>
       <div class="rest-info-row">⏰ 每日 07:00–16:00</div>
       <div class="rest-info-row">📍 Ocean View Parade, New Plymouth（防波堤旁）</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=Bach+on+Breakwater+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://maps.google.com/?q=Bach+on+Breakwater+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
 
@@ -1363,21 +1370,21 @@ a:hover { text-decoration: underline; }
       <div class="rest-info-row">📞 <a href="tel:+6467591241">06 759 1241</a></div>
       <div class="rest-info-row">📍 Puke Ariki 博物馆北翼, 65 St Aubyn St</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://arborio.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-        <a href="https://maps.google.com/?q=Arborio+Restaurant+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://arborio.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Arborio+Restaurant+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
 
     <div class="rest-card">
       <div class="rest-name">太阳世界中餐厅</div>
       <div class="rest-name-en">Sun World Chinese Restaurant</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-red">🥢 中餐首选</span><span class="tag tag-green">✅ 亲子友好</span></div>
+      <div style="margin-bottom:8px;"><span class="tag tag-red">🥢 中餐首选</span><span class="tag tag-green">亲子友好</span></div>
       <div class="rest-dish">🥢 <strong>招牌：</strong>自助中餐、粤式料理，种类丰富</div>
       <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–30/人（自助）</div>
-      <div class="rest-dish">💡 娃 不想吃西餐的备用，来这里最稳妥</div>
+      <div class="rest-dish">娃 不想吃西餐的备用，来这里最稳妥</div>
       <div class="rest-info-row">📍 250 Devon Street East, New Plymouth</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=Sun+World+Chinese+Restaurant+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://maps.google.com/?q=Sun+World+Chinese+Restaurant+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
 
@@ -1386,211 +1393,277 @@ a:hover { text-decoration: underline; }
       <div class="rest-name-en">Other Chinese Options · NP</div>
       <div style="margin-bottom:8px;"><span class="tag tag-red">🥢 中餐备选</span></div>
       <div class="rest-dish">🥢 新普利茅斯 Devon St 一带还有数家中式亚洲餐厅可选</div>
-      <div class="rest-dish">💡 点击地图搜索附近中餐，看评分和营业时间</div>
+      <div class="rest-dish">点击地图搜索附近中餐，看评分和营业时间</div>
       <div class="rest-info-row">📍 Devon Street, New Plymouth CBD</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=Chinese+restaurant+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">📍 搜附近中餐</a>
+        <a href="https://maps.google.com/?q=Chinese+restaurant+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">搜附近中餐</a>
       </div>
     </div>
   </div>
 
   <!-- ── Day 6 途中 ──────────────────────────────────────────────── -->
-  <div class="city-label">🚗 途中 · Day 6（新普利茅斯 → 奥克兰）Hamilton / Cambridge 回程</div>
+  <div class="city-label">途中 · Day 6（新普利茅斯 → 奥克兰）Hamilton / Cambridge 回程</div>
   <div class="grid-2">
     <div class="rest-card">
       <div class="rest-name">剑桥小镇咖啡馆</div>
       <div class="rest-name-en">Cambridge Town Cafés</div>
       <div style="margin-bottom:8px;"><span class="tag tag-green">Day 6 回程午餐</span></div>
       <div class="rest-dish">☕ <strong>供应：</strong>咖啡、简餐、午餐，剑桥镇 Victoria St 上有多家特色小馆</div>
-      <div class="rest-dish">💡 距奥克兰约 1.5h，在此休息吃饭后轻松收尾</div>
+      <div class="rest-dish">距奥克兰约 1.5h，在此休息吃饭后轻松收尾</div>
       <div class="rest-info-row">⏰ 一般 08:00–15:00，各店不同</div>
       <div class="rest-info-row">📍 Victoria Street, Cambridge</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=cafes+Cambridge+Waikato+NZ" target="_blank" class="btn btn-outline btn-sm">📍 搜附近咖啡馆</a>
+        <a href="https://maps.google.com/?q=cafes+Cambridge+Waikato+NZ" target="_blank" class="btn btn-outline btn-sm">搜附近咖啡馆</a>
       </div>
     </div>
     <div class="rest-card">
       <div class="rest-name">五雄鹿餐厅</div>
       <div class="rest-name-en">Five Stags Leamington · Cambridge</div>
-      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 6 回程午餐</span><span class="tag tag-green">✅ 亲子友好</span></div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">Day 6 回程午餐</span><span class="tag tag-green">亲子友好</span></div>
       <div class="rest-dish">🍺 <strong>供应：</strong>pub 风格料理、汉堡、薯条、儿童餐</div>
       <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $20–35/人</div>
       <div class="rest-info-row">⏰ 每日 12:00 至深夜</div>
       <div class="rest-info-row">📍 546 Tirau Road, Leamington, Cambridge</div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="https://maps.google.com/?q=Five+Stags+Leamington+Cambridge+NZ" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
+        <a href="https://maps.google.com/?q=Five+Stags+Leamington+Cambridge+NZ" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
   </div>
+
 </div>
 
 <hr class="divider">
-<!-- SECTION 7: HOT SPRINGS -->
-<div id="springs" class="section">
-  <h2 class="section-title">♨️ 陶波温泉池</h2>
-  <p class="section-desc">若住 Lake Taupo Holiday Resort 或 DeBretts 则直接在酒店泡；也可单独购票到 AC Baths 或 DeBretts，两家均在陶波市区，娃 可玩</p>
-  <div class="spring-compare">
-    <div class="spring-card">
-      <div class="spring-header">
-        <h3>AC 温泉中心</h3>
-        <div class="spring-en">AC Baths · Taupo</div>
-        <div style="margin-top:8px;font-size:13px;opacity:0.9;">💰 性价比更高 · 本地人最爱</div>
-      </div>
-      <div class="spring-body">
-        <p style="font-size:13px;color:#374151;margin-bottom:12px;">陶波地方政府运营的综合水上中心，含室外休闲温水大池、两条25米泳道、水上滑梯（Tarzan Swing + 水滑梯）、4个私人天然矿物温泉池和咖啡馆。设有专属婴幼儿浅水区，非常适合 娃。</p>
-        <div class="spring-price-row"><span>成人</span><span class="spring-price-val">约 NZD $12</span></div>
-        <div class="spring-price-row"><span>儿童（15岁以下）</span><span class="spring-price-val">约 NZD $6</span></div>
-        <div class="spring-price-row"><span>家庭票（2大+3小）</span><span class="spring-price-val">约 NZD $22–30</span></div>
-        <div class="spring-price-row"><span>私人温泉池（4人间）</span><span class="spring-price-val">额外收费</span></div>
-        <p style="font-size:11px;color:#9CA3AF;margin:8px 0 12px;">⚠️ 以上为估算，建议出行前确认最新价格</p>
-        <div class="spring-feature">⏰ <span>06:00–21:00，圣诞节休息</span></div>
-        <div class="spring-feature">📞 <span><a href="tel:+6473760350">07 376 0350</a></span></div>
-        <div class="spring-feature">📍 <span>26 AC Baths Ave, Taupo</span></div>
-        <div class="spring-feature">🛝 <span>水上滑梯 + 婴幼儿浅水区</span></div>
-        <div class="spring-feature">🅿️ <span>有停车场</span></div>
-        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.taupodc.govt.nz/recreation/swimming-pools/ac-baths" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://maps.google.com/?q=AC+Baths+Taupo" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="spring-card">
-      <div class="spring-header" style="background: linear-gradient(135deg, #0C4A6E, #0EA5E9);">
-        <h3>德布瑞特斯温泉度假村</h3>
-        <div class="spring-en">Taupo DeBretts Hot Springs</div>
-        <div style="margin-top:8px;font-size:13px;opacity:0.9;">🎢 设施更丰富 · 儿童水上乐园</div>
-      </div>
-      <div class="spring-body">
-        <p style="font-size:13px;color:#374151;margin-bottom:12px;">综合温泉度假胜地，有室内、室外和私人温泉池，最大亮点是专属「儿童水上乐园」（含小滑梯、喷水设施）。全年开放365天，如住在度假村内门票打折。</p>
-        <div class="spring-price-row"><span>成人</span><span class="spring-price-val">约 NZD $18</span></div>
-        <div class="spring-price-row"><span>儿童（3–12岁）</span><span class="spring-price-val">约 NZD $4</span></div>
-        <div class="spring-price-row"><span>3岁以下</span><span class="spring-price-val">免费</span></div>
-        <div class="spring-price-row"><span>家庭票（2大+4小）</span><span class="spring-price-val">约 NZD $24</span></div>
-        <div class="spring-price-row"><span>观众票（不下水）</span><span class="spring-price-val">$3/人</span></div>
-        <div style="background:#FEF3C7;border-radius:6px;padding:8px 10px;margin:10px 0;font-size:12px;color:#92400E;">
-          ⚠️ 8岁以下儿童须有成人（16岁+）积极陪同，1名成人最多看护2名儿童
-        </div>
-        <div class="spring-feature">⏰ <span>全年365天开放（具体时间查官网）</span></div>
-        <div class="spring-feature">📍 <span>76 Taupo-Napier Hwy, Taupo</span></div>
-        <div class="spring-feature">🛝 <span>儿童水上乐园 + 多种温泉池</span></div>
-        <div class="spring-feature">🅿️ <span>有停车场</span></div>
-        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.taupodebretts.co.nz" target="_blank" class="btn btn-green btn-sm">🌐 官网</a>
-          <a href="https://www.taupodebretts.co.nz/hot-pools/prices-and-hours" target="_blank" class="btn btn-outline btn-sm">🎟️ 票价</a>
-          <a href="https://maps.google.com/?q=Taupo+DeBretts+Hot+Springs" target="_blank" class="btn btn-outline btn-sm">📍 地图</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div style="background:var(--green-pale);border-radius:var(--radius);padding:16px 20px;margin-top:16px;">
-    <strong style="color:var(--green);">🤔 怎么选？</strong>
-    <p style="font-size:13px;margin-top:6px;color:#1A3A2A;">预算优先或想游泳 → <strong>AC Baths</strong>（更便宜，有水滑梯，设施全面）<br>娃 体验优先，追求儿童专属水上乐园 → <strong>DeBretts</strong>（家庭票$24，儿童设施更丰富，虽无泳道但氛围更欢乐）</p>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- SECTION 8: SNOW -->
+<!-- SECTION 7: SNOW -->
 <div id="snow" class="section">
-  <h2 class="section-title">⛷️ 玩雪专区 · Whakapapa</h2>
-  <p class="section-desc">Day 3（7月9日）核心项目，从陶波出发日归，以下信息已提前确认，建议截图备用</p>
+  <h2 class="section-title">玩雪专区</h2>
+  <p class="section-desc">Day 3 · 7/9（周四）陶波出发日归 Whakapapa 滑雪场 · 往返约 180km</p>
 
-  <div class="snow-card">
-    <h3>🚌 摆渡车时刻表 · Park N Ride → Whakapapa</h3>
-    <p style="font-size:13px;opacity:0.85;margin-bottom:4px;">从陶波驾车约 1.5h 抵达 National Park 村，免费停车，坐摆渡车上山，约30–45分钟，配防滑链，专业驾驶，安全省心。</p>
-    <table class="shuttle-table">
-      <thead><tr><th>方向</th><th>班次时间</th><th>价格（来回）</th><th>预订</th></tr></thead>
-      <tbody>
-        <tr><td>⬆️ 上山</td><td>08:15 / 09:15 / 10:15</td><td rowspan="2">NZD $36.65/人<br>三人共 ≈ $110</td><td rowspan="2"><a href="https://nationalparkshuttles.com" target="_blank" style="color:white;text-decoration:underline;">提前网上预订</a></td></tr>
-        <tr><td>⬇️ 下山</td><td>14:15 / 15:15 / 16:15</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:12px;opacity:0.7;margin-top:8px;">从陶波 09:00 出发，10:30 抵村，建议坐 10:15 上山（或按预订时间），约 15:00 下山，17:30 返回陶波。</p>
+  <!-- 摆渡车 -->
+  <div class="city-label">摆渡车（National Park Village ↔ Whakapapa 雪场）</div>
+  <p style="color:#555;font-size:14px;margin:-8px 0 16px;">所有摆渡车均需<strong>提前预约</strong>，建议前一晚预订。出发地：<strong>National Park Village Park N Ride，1 Ward St, Waimarino</strong>（提前 15 分钟到达）</p>
+  <div style="overflow-x:auto;margin-bottom:16px;">
+  <table style="width:100%;border-collapse:collapse;font-size:14px;">
+    <thead style="background:var(--green);color:white;">
+      <tr>
+        <th style="padding:10px 14px;text-align:left;">运营商</th>
+        <th style="padding:10px 14px;text-align:left;">上山时间</th>
+        <th style="padding:10px 14px;text-align:left;">下山时间</th>
+        <th style="padding:10px 14px;text-align:left;">成人</th>
+        <th style="padding:10px 14px;text-align:left;">儿童</th>
+        <th style="padding:10px 14px;text-align:left;">联系 / 预订</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:var(--green-tint);">
+        <td style="padding:10px 14px;font-weight:600;">Ruapehu Mountain Transport<br><span style="font-size:12px;color:var(--text-muted);">时刻表最固定</span></td>
+        <td style="padding:10px 14px;">8:15 / 9:15 / 10:15</td>
+        <td style="padding:10px 14px;">14:15 / 15:15 / 16:15</td>
+        <td style="padding:10px 14px;font-weight:600;">$60</td>
+        <td style="padding:10px 14px;font-weight:600;">$50</td>
+        <td style="padding:10px 14px;"><a href="https://www.ruapehumountaintransport.co.nz" target="_blank" style="color:var(--green);font-weight:600;">ruapehumountaintransport.co.nz</a><br><a href="tel:+64278922954" style="color:#555;font-size:12px;">027 892 2954</a></td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;font-weight:600;">National Park Shuttles</td>
+        <td style="padding:10px 14px;">多班次（按需）</td>
+        <td style="padding:10px 14px;">返回时间确认预约时告知</td>
+        <td style="padding:10px 14px;font-weight:600;">$55</td>
+        <td style="padding:10px 14px;font-weight:600;">$40</td>
+        <td style="padding:10px 14px;"><a href="https://nationalparkshuttles.com/shuttle-transport/whakapapa-ski-field-shuttles-transfer-national-park-village-round-trip/" target="_blank" style="color:var(--green);font-weight:600;">nationalparkshuttles.com</a><br><a href="tel:+64273941498" style="color:#555;font-size:12px;">027 394 1498</a></td>
+      </tr>
+      <tr style="background:var(--green-tint);">
+        <td style="padding:10px 14px;font-weight:600;">Summit Shuttles<br><span style="font-size:12px;color:var(--text-muted);">儿童价最低</span></td>
+        <td style="padding:10px 14px;">多班次（按需）</td>
+        <td style="padding:10px 14px;">返回时间确认预约时告知</td>
+        <td style="padding:10px 14px;font-weight:600;">$55</td>
+        <td style="padding:10px 14px;font-weight:600;">$35</td>
+        <td style="padding:10px 14px;"><a href="https://www.summitshuttles.co.nz" target="_blank" style="color:var(--green);font-weight:600;">summitshuttles.co.nz</a><br><a href="tel:+64021784202" style="color:#555;font-size:12px;">021 784 202</a></td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;font-weight:600;">Ruapehu Snow Shuttles</td>
+        <td style="padding:10px 14px;">多班次（按需）</td>
+        <td style="padding:10px 14px;">返回时间确认预约时告知</td>
+        <td style="padding:10px 14px;font-weight:600;">$60</td>
+        <td style="padding:10px 14px;font-weight:600;">$50<br><span style="font-size:11px;color:#666;">≤13岁</span></td>
+        <td style="padding:10px 14px;"><a href="https://scenicshuttles.securedirectbookings.com/ruapehu-snow-shuttle-c357697.html" target="_blank" style="color:var(--green);font-weight:600;">在线预订</a><br><a href="tel:+64204111 4648" style="color:#555;font-size:12px;">020 4111 4648</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div style="background:var(--green-tint);border-left:3px solid var(--green);padding:12px 16px;border-radius:6px;margin-bottom:24px;font-size:13px;color:#1a1a1a;">
+    <strong>费用参考：</strong>Summit Shuttles 最划算 — 爸妈 2×$55 + 娃 $35 = <strong>$145</strong>（往返）· Ruapehu Mountain Transport 时刻最固定，适合不确定下山时间的家庭
   </div>
 
-  <div class="snow-card" style="margin-top:16px;">
-    <h3>🎟️ 票价总览</h3>
-    <div class="ticket-grid">
-      <div class="ticket-item">
-        <div class="ticket-price">$39</div>
-        <div class="ticket-label">成人 Snowland</div>
-        <div class="ticket-note">娃爸</div>
+  <!-- 门票 -->
+  <div class="city-label">门票 · Snowland + Sky Waka 缆车（2026 冬季官方价格）</div>
+  <div class="grid-3" style="margin-bottom:24px;">
+    <div class="rest-card">
+      <div class="rest-name">Snowland 雪乐园</div>
+      <div class="rest-name-en">Happy Valley · 适合全家</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">娃的主场</span><span class="tag tag-green">季票免费</span></div>
+      <div class="rest-dish">⛄ <strong>活动：</strong>雪地滑梯、浮管滑雪道（tubing）、雪橇、堆雪人，无需滑雪技能，6 岁最合适</div>
+      <div class="rest-dish" style="margin-top:8px;">
+        <table style="width:100%;font-size:13px;border-collapse:collapse;">
+          <tr style="background:var(--green-tint);"><td style="padding:4px 8px;">成人 (Adult)</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$39</td></tr>
+          <tr><td style="padding:4px 8px;">青少年 5–17 岁 (Youth)</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$25</td></tr>
+          <tr style="background:var(--green-tint);"><td style="padding:4px 8px;">🎫 娃（持季票）</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">免费</td></tr>
+        </table>
       </div>
-      <div class="ticket-item">
-        <div class="ticket-price">$39</div>
-        <div class="ticket-label">成人 Snowland</div>
-        <div class="ticket-note">娃妈</div>
-      </div>
-      <div class="ticket-item" style="border: 2px solid var(--amber);">
-        <div class="ticket-price" style="color:#FCD34D;">$0</div>
-        <div class="ticket-label">娃 Snowland</div>
-        <div class="ticket-note">⭐ 季票已购，免费！</div>
-      </div>
-      <div class="ticket-item">
-        <div class="ticket-price">$59?</div>
-        <div class="ticket-label">Sky Waka 缆车（可选）</div>
-        <div class="ticket-note">成人，冬季价格待确认</div>
+      <div class="rest-info-row" style="margin-top:8px;">📅 爸妈 2 张 = <strong>$50</strong>（各$25），娃持季票 <strong>8折 = $20</strong></div>
+      <div class="rest-info-row" style="color:#92400E;">季票折扣 20% off（7月）·需出示 Snow Card</div>
+      <div class="rest-info-row">⏰ 约 09:00–16:00（视雪况）</div>
+      <div style="margin-top:12px;">
+        <a href="https://buy.whakapapa.com/shop/product/7" target="_blank" class="btn btn-green btn-sm">在线购票</a>
+        <a href="https://www.whakapapa.com/snowland" target="_blank" class="btn btn-outline btn-sm">了解详情</a>
       </div>
     </div>
-    <p style="font-size:12px;opacity:0.75;margin-top:12px;">⚠️ Snowland 为「一小时一场次」制，需在 whakapapa.com/snowland 提前选时段预订，否则可能现场无票。Tubing（滑轮胎）限8岁以上，娃 6岁可玩雪橇区和自由雪地区，一样非常尽兴！</p>
-    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
-      <a href="https://www.whakapapa.com/snowland" target="_blank" class="btn btn-amber">🎟️ 预订 Snowland 时段票</a>
-      <a href="https://nationalparkshuttles.com/shuttle-transport/whakapapa-ski-field-shuttles-transfer-national-park-village-round-trip/" target="_blank" class="btn" style="background:white;color:#0369A1;font-weight:700;border:2px solid white;">🚌 预订摆渡车</a>
+    <div class="rest-card" style="border:2px solid var(--green);">
+      <div class="rest-name" style="color:var(--green);">🚡 Sky Waka 缆车</div>
+      <div class="rest-name-en">Scenic Gondola · 高达 2,020m 观景台</div>
+      <div style="margin-bottom:8px;"><span class="tag" style="background:#dbeafe;color:#1d4ed8;">北岛最高观景台</span><span class="tag" style="background:#dbeafe;color:#1d4ed8;">必体验</span></div>
+      <div class="rest-dish">🏔️ <strong>体验：</strong>全程 1.8km，乘坐新西兰最先进的缆车从 Happy Valley 上升到 2,020m 的 Knoll Ridge Chalet，360° 全景俯瞰中央高原火山带</div>
+      <div class="rest-dish" style="margin-top:8px;">
+        <table style="width:100%;font-size:13px;border-collapse:collapse;">
+          <tr style="background:#dbeafe;"><td style="padding:4px 8px;">成人 (18+)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">$59</td></tr>
+          <tr><td style="padding:4px 8px;">青少年 (Youth)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">$39</td></tr>
+          <tr style="background:#dbeafe;"><td style="padding:4px 8px;">婴幼儿 (Infant)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">免费</td></tr>
+          <tr><td style="padding:4px 8px;">家庭套票 (2A+2Y)</td><td style="padding:4px 8px;font-weight:700;color:#1d4ed8;">$169</td></tr>
+        </table>
+      </div>
+      <div class="rest-info-row" style="margin-top:8px;">⏰ 09:00–16:00（冬季，视天气）</div>
+      <div class="rest-info-row">📅 爸妈各 $59；娃持<strong>季票已含缆车，免费</strong>（优先通道）</div>
+      <div style="margin-top:12px;">
+        <a href="https://buy.whakapapa.com/shop/product/6" target="_blank" class="btn btn-green btn-sm">在线购票</a>
+        <a href="https://www.whakapapa.com/passes/sightseeing-and-sledding" target="_blank" class="btn btn-outline btn-sm">了解详情</a>
+      </div>
+    </div>
+    <div class="rest-card" style="border:2px solid var(--green);">
+      <div class="rest-name" style="color:var(--green);">组合套票（推荐）</div>
+      <div class="rest-name-en">Snowland + Sky Waka Combo</div>
+      <div style="margin-bottom:8px;"><span class="tag" style="background:var(--green-tint);color:var(--green);">最超值</span><span class="tag" style="background:var(--green-tint);color:var(--green);">一票两用</span></div>
+      <div class="rest-dish">🎟️ <strong>内含：</strong>Snowland 玩雪 + Sky Waka 缆车往返，同一天使用，玩雪 + 看景一次搞定</div>
+      <div class="rest-dish" style="margin-top:8px;">
+        <table style="width:100%;font-size:13px;border-collapse:collapse;">
+          <tr style="background:var(--green-tint);"><td style="padding:4px 8px;">成人 Combo</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$79</td><td style="padding:4px 8px;font-size:11px;color:#666;">单买 $98，省 $19</td></tr>
+          <tr><td style="padding:4px 8px;">青少年 Combo</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">$54</td><td style="padding:4px 8px;font-size:11px;color:#666;">单买 $64，省 $10</td></tr>
+          <tr style="background:var(--green-tint);"><td style="padding:4px 8px;">婴幼儿</td><td style="padding:4px 8px;font-weight:700;color:var(--green);">免费</td><td style="padding:4px 8px;"></td></tr>
+        </table>
+      </div>
+      <div class="rest-info-row" style="margin-top:8px;color:var(--green);font-weight:600;">💰 爸妈 Combo 2×$79 + 娃 Snowland $20（季票8折）= <strong>$178</strong></div>
+      <div class="rest-info-row" style="color:var(--green);">📌 娃缆车季票含免费，只需买 Snowland，组合最优</div>
+      <div style="margin-top:12px;">
+        <a href="https://buy.whakapapa.com/shop/product/13" target="_blank" class="btn btn-green btn-sm" >在线购套票</a>
+        <a href="https://www.whakapapa.com/passes/sightseeing-and-sledding" target="_blank" class="btn btn-outline btn-sm">官网</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name">装备租借 · The Alpine Centre</div>
+      <div class="rest-name-en">National Park Village · 出发前取装备</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">现场可租</span><span class="tag tag-green">进山前取</span></div>
+      <div class="rest-dish">👟 <strong>可租：</strong>防水保暖靴（Apres Boots）· 防水外套 · 防水裤 · 雪地手套 · 护目镜</div>
+      <div class="rest-dish">💰 <strong>参考：</strong>靴子约 $15–20/天，外套/裤约 $20–30/件/天</div>
+      <div class="rest-info-row">📍 National Park Village 主街</div>
+      <div class="rest-info-row">⏰ 约 08:00–17:00（雪季期间）</div>
+      <div style="margin-top:12px;">
+        <a href="https://maps.google.com/?q=The+Alpine+Centre+National+Park+Village+NZ" target="_blank" class="btn btn-outline btn-sm">地图</a>
+      </div>
+    </div>
+    <div class="rest-card" style="background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2);">
+      <div class="rest-name" style="color:#dc2626;">天气备案方案</div>
+      <div class="rest-name-en">高山天气多变，提前做好 B 计划</div>
+      <div style="margin-bottom:8px;"><span class="tag" style="background:rgba(239,68,68,0.1);color:#dc2626;">备用方案</span></div>
+      <div class="rest-dish" style="color:#1a1a1a;">🗓️ <strong>主计划：</strong>Day 3 · 7/9（周四）Whakapapa 玩雪</div>
+      <div class="rest-dish" style="color:#1a1a1a;">🔄 <strong>若 7/9 封山：</strong>临时对调 Day 2 和 Day 3，7/8 去雪场，7/9 留陶波游览</div>
+      <div class="rest-info-row" style="color:#1a1a1a;">📱 出发前一晚查看 <a href="https://www.whakapapa.com/weather" target="_blank" style="color:var(--green);">whakapapa.com/weather</a></div>
+      <div class="rest-info-row" style="color:#1a1a1a;">📞 道路状态：<a href="tel:08004444449">0800 44 44 49</a></div>
+      <div class="rest-info-row" style="color:#1a1a1a;">❄️ 雪况查询：<a href="https://www.j2ski.com/ski_resorts/New_Zealand/Whakapapa/" target="_blank" style="color:var(--green);">J2Ski</a> · <a href="https://www.snownz.com" target="_blank" style="color:var(--green);">SnowNZ</a></div>
     </div>
   </div>
 
-  <div class="snow-card" style="margin-top:16px;">
-    <h3>🎒 装备清单（全家必带）</h3>
-    <div class="gear-grid">
-      <div class="gear-item">🧥 防水外套（全家）</div>
-      <div class="gear-item">👖 防水裤（全家）</div>
-      <div class="gear-item">🧤 防水保暖手套</div>
-      <div class="gear-item">🎩 毛帽 + 围巾</div>
-      <div class="gear-item">👟 防水保暖鞋</div>
-      <div class="gear-item">👕 保暖内层（非棉）</div>
-      <div class="gear-item">🕶️ 太阳镜 + 防晒霜</div>
-      <div class="gear-item">🍱 自带午餐热饮</div>
+  <!-- 装备清单 -->
+  <div class="city-label">玩雪装备清单</div>
+  <div class="grid-3">
+    <div class="rest-card">
+      <div class="rest-name" style="color:var(--green);">✅ 自备（行李箱带）</div>
+      <div style="margin-top:10px;">
+        <div class="rest-dish">🧤 厚手套（必须！雪场手套建议防水）</div>
+        <div class="rest-dish">🧣 围巾/脖套</div>
+        <div class="rest-dish">🧢 毛线帽（遮耳）</div>
+        <div class="rest-dish">🧥 厚抓绒/羊毛内层</div>
+        <div class="rest-dish">🩱 速干排汗内衣（贴身层）</div>
+        <div class="rest-dish">🕶️ 太阳镜或护目镜</div>
+        <div class="rest-dish">🔋 充电宝（雪地手机耗电快）</div>
+        <div class="rest-dish">🍫 零食、热水壶</div>
+      </div>
     </div>
-    <p style="font-size:12px;opacity:0.75;margin-top:12px;">防水外套/裤山上可租（约 $20–40/人/天）。雪地保暖靴可在 National Park 村 The Alpine Centre 提前租好再上山（成人 $15，儿童 $10）。雪橇设备含在 Snowland 票内，无需自带。</p>
-  </div>
-
-  <div style="background:rgba(239,68,68,0.08);border:2px solid rgba(239,68,68,0.5);border-radius:var(--radius);padding:16px 20px;margin-top:16px;color:#1a1a1a;">
-    <h4 style="color:#dc2626;margin-bottom:8px;font-weight:700;">⚠️ 天气备案方案</h4>
-    <p style="font-size:13px;line-height:1.8;color:#1a1a1a;">
-      高山天气多变，大风或暴雪时缆车 / 道路可能临时关闭。<br>
-      <strong>主计划：</strong>Day 3 · 7/9（周四）前往 Whakapapa 玩雪<br>
-      <strong>若 7/9 封山：</strong>临时对调 Day 2 和 Day 3 — 7/8（周三）改上山玩雪，7/9（周四）改为陶波自由日<br>
-      <strong>出发前一晚：</strong>查看 <a href="https://www.whakapapa.com/weather" target="_blank" style="color:#dc2626;font-weight:600;">whakapapa.com/weather</a> 确认实时状况，致电 <strong>0800 44 44 49</strong> 查道路状态
-    </p>
+    <div class="rest-card">
+      <div class="rest-name" style="color:var(--green);">📦 The Alpine Centre 可租</div>
+      <div style="margin-top:10px;">
+        <div class="rest-dish">👟 防水保暖靴（Apres Boots）— <strong>强烈推荐</strong></div>
+        <div class="rest-dish">🧥 防水外套（雨衣级别，挡雪防水）</div>
+        <div class="rest-dish">👖 防水裤（雪地必备，防沾湿）</div>
+        <div class="rest-dish">National Park Village 主街，进山前取</div>
+        <div class="rest-dish" style="color:var(--green);font-weight:600;">📍 The Alpine Centre, Carroll St, National Park Village</div>
+      </div>
+    </div>
+    <div class="rest-card" style="border:2px solid #f59e0b;">
+      <div class="rest-name" style="color:#b45309;">🎫 娃的季票 · Snow Card 使用指南</div>
+      <div class="rest-name-en">Child Season Pass · 免费缆车 + Snowland 8折</div>
+      <div style="margin-bottom:8px;"><span class="tag" style="background:#fef3c7;color:#b45309;">必读</span><span class="tag" style="background:#fef3c7;color:#b45309;">出发前领卡</span></div>
+      <div style="margin-top:10px;">
+        <div class="rest-dish">🃏 <strong>凭证：</strong>实体 Snow Card（射频感应卡），进缆车/缆椅刷卡，Snowland 折扣出示给工作人员</div>
+        <div class="rest-dish">📍 <strong>领卡地点（二选一）：</strong><br>
+          &nbsp;&nbsp;① <strong>Gordons Taupo</strong> — 陶波店，Day 1–2 入住期间去领，最方便<br>
+          &nbsp;&nbsp;② <strong>Ski Biz, National Park Village</strong> — Day 3 上山途中领卡</div>
+        <div class="rest-dish">📧 <strong>流程：</strong>购票后收到含 QR Code 的确认邮件 → 带邮件/截图到 Click &amp; Collect 自助机 → 领出 Snow Card（新卡收费 $5）</div>
+        <div class="rest-dish" style="color:var(--green);font-weight:600;">✅ <strong>季票权益（7月）：</strong><br>
+          &nbsp;&nbsp;· Sky Waka 缆车：免费（优先通道）<br>
+          &nbsp;&nbsp;· Snowland：8折，Youth $25 → <strong>$20</strong><br>
+          &nbsp;&nbsp;· 所有缆椅、缆车全覆盖</div>
+        <div class="rest-dish"><strong>注意：</strong>Buddy Pass 等其他折扣不适用于免费 Child 季票</div>
+      </div>
+      <div style="margin-top:12px;">
+        <a href="https://help.whakapapa.com/hc/en-us/articles/360001191256" target="_blank" class="btn btn-outline btn-sm">领卡说明</a>
+        <a href="https://buy.whakapapa.com/authentication/login" target="_blank" class="btn btn-outline btn-sm">🔑 登录账号</a>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-name" style="color:var(--green);">注意事项</div>
+      <div style="margin-top:10px;">
+        <div class="rest-dish">⛅ 出发前查 <a href="https://www.whakapapa.com/weather" target="_blank" style="color:var(--green);">whakapapa.com/weather</a></div>
+        <div class="rest-dish">🕗 陶波 07:00 出发 → 国家公园村 08:30 → 换摆渡车 → 雪场 09:00</div>
+        <div class="rest-dish">🚗 陶波到 National Park Village 约 1.5h（SH47→SH48）</div>
+        <div class="rest-dish">☀️ 高海拔紫外线强，防晒霜必备</div>
+        <div class="rest-dish">🍱 山上餐厅价贵，建议自带午餐零食</div>
+        <div class="rest-dish">🔁 返程：摆渡车 16:00/17:00 下山 → 回陶波约 19:00</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr class="divider">
 <!-- SECTION 9: BUDGET -->
 <div id="budget" class="section">
-  <h2 class="section-title">💰 费用预算</h2>
+  <h2 class="section-title">费用预算</h2>
   <p class="section-desc">一家三口全程预算估算（新西兰元 NZD）· 油价按 $3.50/L 估算</p>
 
   <div class="budget-summary">
     <div class="budget-stat"><div class="b-num">$620</div><div class="b-label">租车（已付含全险）</div></div>
     <div class="budget-stat"><div class="b-num">~$383</div><div class="b-label">油费（1,150km）</div></div>
-    <div class="budget-stat"><div class="b-num">~$1,050</div><div class="b-label">住宿（5晚）</div></div>
+    <div class="budget-stat"><div class="b-num">~$1225</div><div class="b-label">住宿（5晚）</div></div>
     <div class="budget-stat"><div class="b-num">~$850</div><div class="b-label">餐饮（6天）</div></div>
-    <div class="budget-stat"><div class="b-num">~$3,400</div><div class="b-label">预计总花费</div></div>
+    <div class="budget-stat"><div class="b-num">~$3446</div><div class="b-label">预计总花费</div></div>
   </div>
 
   <div class="budget-bar-wrap">
-    <div class="budget-bar-title">📊 核心支出分布</div>
+    <div class="budget-bar-title">核心支出分布</div>
     <div class="bar-row">
       <span class="bar-label">住宿</span>
-      <div class="bar-track"><div class="bar-fill" style="width:31%;background:#1B6B45;">31%</div></div>
-      <span class="bar-amount">~$1,050</span>
+      <div class="bar-track"><div class="bar-fill" style="width:36%;background:var(--green);">36%</div></div>
+      <span class="bar-amount">~$1225</span>
     </div>
     <div class="bar-row">
       <span class="bar-label">餐饮</span>
-      <div class="bar-track"><div class="bar-fill" style="width:26%;background:#2D8A5C;">26%</div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:26%;background:var(--green-mid);">26%</div></div>
       <span class="bar-amount">~$850</span>
     </div>
     <div class="bar-row">
@@ -1600,22 +1673,22 @@ a:hover { text-decoration: underline; }
     </div>
     <div class="bar-row">
       <span class="bar-label">油费</span>
-      <div class="bar-track"><div class="bar-fill" style="width:12%;background:#0EA5E9;">12%</div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:12%;background:#3D8C65;">12%</div></div>
       <span class="bar-amount">~$383</span>
     </div>
     <div class="bar-row">
       <span class="bar-label">玩雪门票</span>
-      <div class="bar-track"><div class="bar-fill" style="width:5%;background:#F59E0B;">5%</div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:5%;background:var(--warn);">5%</div></div>
       <span class="bar-amount">~$78</span>
     </div>
     <div class="bar-row">
       <span class="bar-label">摆渡车</span>
-      <div class="bar-track"><div class="bar-fill" style="width:3%;background:#F59E0B;">3%</div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:3%;background:var(--warn);">3%</div></div>
       <span class="bar-amount">~$110</span>
     </div>
     <div class="bar-row">
-      <span class="bar-label">景点·温泉</span>
-      <div class="bar-track"><div class="bar-fill" style="width:5%;background:#8B5CF6;">5%</div></div>
+      <span class="bar-label">景点杂费</span>
+      <div class="bar-track"><div class="bar-fill" style="width:5%;background:#4A7C59;">5%</div></div>
       <span class="bar-amount">~$180</span>
     </div>
   </div>
@@ -1625,15 +1698,16 @@ a:hover { text-decoration: underline; }
       <tr><th>项目</th><th>金额 (NZD)</th><th>说明</th><th>类别</th></tr>
     </thead>
     <tbody>
-      <tr class="paid"><td>🚗 租车（含全险）</td><td><strong>$620</strong></td><td>7/7 取车 – 7/13 还车，已付</td><td><span class="status-paid">✅ 已付</span></td></tr>
-      <tr><td>⛽ 油费</td><td>约 $383</td><td>1,150km × 9.5L/100km × $3.50/L（7月估价）</td><td><span class="status-core">核心</span></td></tr>
-      <tr><td>🏨 住宿（5晚）</td><td>约 $1,050</td><td>陶波 3晚（7/7–7/10）+ 新普利茅斯 2晚（7/10–7/12）</td><td><span class="status-core">核心</span></td></tr>
-      <tr><td>⛄ Snowland 门票（爸妈2张）</td><td>约 $78</td><td>成人 $39 × 2，娃 季票已购免费</td><td><span class="status-core">核心</span></td></tr>
-      <tr><td>🚌 摆渡车（3人来回）</td><td>约 $110</td><td>$36.65 × 3人</td><td><span class="status-core">核心</span></td></tr>
-      <tr><td>🍽️ 餐饮（6天）</td><td>约 $850</td><td>约 $140/天，部分早餐自理</td><td><span class="status-core">核心</span></td></tr>
-      <tr><td>🏛️ 景点·温泉·杂费</td><td>约 $180</td><td>几维鸟馆家庭票+Len Lye+温泉门票+咖啡停车等</td><td><span class="status-core">核心</span></td></tr>
+      <tr class="paid"><td>租车（含全险）</td><td><strong>$620</strong></td><td>7/7 取车 – 7/13 还车，已付</td><td><span class="status-paid">已付</span></td></tr>
+      <tr><td>油费</td><td>约 $383</td><td>1,150km × 9.5L/100km × $3.50/L（7月估价）</td><td><span class="status-core">核心</span></td></tr>
+      <tr class="paid"><td>陶波住宿（3晚）</td><td><strong>$805</strong></td><td>The Reef Resort · 7/7–7/10，已确认</td><td><span class="status-paid">已付</span></td></tr>
+      <tr><td>新普利茅斯住宿（2晚）</td><td>约 $420</td><td>7/10–7/12，待预订（约 $210/晚）</td><td><span class="status-core">核心</span></td></tr>
+      <tr><td>Snowland 门票（爸妈2张）</td><td>约 $78</td><td>成人 $39 × 2，娃 季票已购免费</td><td><span class="status-core">核心</span></td></tr>
+      <tr><td>摆渡车（3人来回）</td><td>约 $110</td><td>$36.65 × 3人</td><td><span class="status-core">核心</span></td></tr>
+      <tr><td>餐饮（6天）</td><td>约 $850</td><td>约 $140/天，部分早餐自理</td><td><span class="status-core">核心</span></td></tr>
+      <tr><td>景点·杂费</td><td>约 $180</td><td>几维鸟馆家庭票+Len Lye+咖啡停车等</td><td><span class="status-core">核心</span></td></tr>
       <tr style="background:#F0FDF4;"><td colspan="2"><strong>核心小计（不含已付租车）</strong></td><td colspan="2"><strong style="color:var(--green);font-size:15px;">约 NZD $2,651</strong></td></tr>
-      <tr class="optional"><td>🚡 Sky Waka 缆车（可选）</td><td>约 $118–169</td><td>2大人或家庭票，冬季价格待确认</td><td><span class="status-opt">可选</span></td></tr>
+      <tr class="optional"><td>Sky Waka 缆车（可选）</td><td>约 $118–169</td><td>2大人或家庭票，冬季价格待确认</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>🧥 防水衣裤租赁（可选）</td><td>约 $40–80</td><td>如无防水外套/裤，山上租 2大人份</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>⛄ 备用玩雪日（可选）</td><td>约 $188</td><td>7/9 上午加玩（天气备案）：摆渡$110 + 门票$78</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>🎲 机动备用金</td><td>约 $150</td><td>应急、加餐、纪念品、停车等</td><td><span class="status-opt">建议留</span></td></tr>
