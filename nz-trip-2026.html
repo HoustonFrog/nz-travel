@@ -334,7 +334,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
     <a href="#daily">逐日行程</a>
     <a href="#checklist">行前清单</a>
     <a href="#attractions">景点介绍</a>
-    <a href="#hotels">住宿推荐</a>
+    <a href="#hotels">住宿信息</a>
     <a href="#restaurants">餐厅推荐</a>
     <a href="#snow">玩雪专区</a>
     <a href="#budget">费用预算</a>
@@ -1469,6 +1469,217 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
   <h2 class="section-title">玩雪专区</h2>
   <p class="section-desc">Day 3 · 7/9（周四）陶波出发日归 Whakapapa 滑雪场 · 往返约 180km</p>
 
+  <!-- 雪况快照 -->
+  <div class="snow-card">
+    <h3>❄️ 今日雪况快照（Whakapapa 官方实时数据）</h3>
+    <p style="font-size:12px;opacity:0.8;margin:-6px 0 14px;line-height:1.6;">数据来源 whakapapa.com/report · 查询时间 7月3日 07:34（当地时间）· <strong>这是手动查询的静态快照，页面打开后不会自动刷新，出发前 1–2 天务必重新查看实时数据 →</strong></p>
+    <div class="ticket-grid">
+      <div class="ticket-item">
+        <div class="ticket-price">0cm</div>
+        <div class="ticket-label">雪基厚度</div>
+        <div class="ticket-note">Top of Knoll T-bar</div>
+      </div>
+      <div class="ticket-item">
+        <div class="ticket-price">0cm</div>
+        <div class="ticket-label">雪基厚度</div>
+        <div class="ticket-note">Top of Gondola</div>
+      </div>
+      <div class="ticket-item">
+        <div class="ticket-price">0cm</div>
+        <div class="ticket-label">24小时降雪</div>
+      </div>
+      <div class="ticket-item">
+        <div class="ticket-price">0cm</div>
+        <div class="ticket-label">过去7天降雪</div>
+      </div>
+      <div class="ticket-item">
+        <div class="ticket-price">6.1° / 3.7°</div>
+        <div class="ticket-label">早晨气温 °C</div>
+        <div class="ticket-note">Knoll / 缆车顶部</div>
+      </div>
+      <div class="ticket-item">
+        <div class="ticket-price">7.9 / 1.8</div>
+        <div class="ticket-label">风速 km/h</div>
+        <div class="ticket-note">Knoll SSW / 缆车 ENE</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;font-size:13px;line-height:1.8;">
+      ☀️ <strong>今日状况：</strong>晴朗寒冷，造雪机全线开机（山顶到山脚），天然雪基暂为 0，山上覆盖以人工造雪为主<br>
+      🚠 <strong>设施开放：</strong>Sky Waka 缆车 / Knoll Ridge Chalet / Snowland 均 10:00–16:00 开放，Lorenz's 咖啡厅 9:30–16:00；<strong>Happy Valley Rentals（装备租赁）今日未开</strong>，出发前需确认租赁点开放状态<br>
+      🛣️ <strong>Bruce Road 进山公路：</strong>OPEN（摆渡车运营依赖此路况，路况变化会直接影响摆渡车是否发车）
+    </div>
+    <div style="margin-top:14px;">
+      <a href="https://www.whakapapa.com/report" target="_blank" class="btn" style="background:white;color:var(--green);">查看实时雪况报告 →</a>
+    </div>
+  </div>
+
+  <!-- 实时摄像头 -->
+  <div class="city-label">雪场实时摄像头 Live Webcam</div>
+  <div class="rest-card" style="max-width:520px;margin-bottom:24px;padding:0;overflow:hidden;">
+    <div style="position:relative;background:#111;">
+      <img id="hvWebcam" src="https://webcams.whakapapa.com/hvfromskywaka/latest.jpg" alt="Happy Valley 实时摄像头画面" style="width:100%;display:block;min-height:200px;object-fit:cover;">
+      <div style="position:absolute;top:8px;left:8px;background:rgba(0,0,0,0.55);color:#fff;font-size:11px;padding:3px 8px;border-radius:4px;">🔴 LIVE · Happy Valley</div>
+    </div>
+    <div style="padding:14px 18px;">
+      <div class="rest-name" style="margin-bottom:2px;">Happy Valley 实时画面</div>
+      <div class="rest-name-en">从 Sky Waka 缆车俯拍 · 正是 Snowland 雪乐园所在地</div>
+      <div class="rest-dish" style="margin-top:8px;">这里就是 Day 3 娃玩雪橇、堆雪人的地方——出发前可以直接看实时画面判断现场雪量和天气，比数字更直观</div>
+      <div id="hvWebcamTime" style="font-size:11px;color:var(--text-light);margin-top:8px;">🔄 页面加载时自动获取最新画面，此后每 5 分钟自动刷新一次</div>
+      <div style="margin-top:12px;">
+        <a href="https://www.whakapapa.com/report" target="_blank" class="btn btn-outline btn-sm">查看更多机位（Pinnacles / Far West T-Bar / Te Heuheu Valley 等）→</a>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var img = document.getElementById('hvWebcam');
+    var timeEl = document.getElementById('hvWebcamTime');
+    if (!img) return;
+    function refresh() {
+      var test = new Image();
+      test.onload = function () {
+        img.src = test.src;
+        if (timeEl) timeEl.textContent = '✅ 已刷新 · ' + new Date().toLocaleTimeString('zh-CN', { hour12: false });
+      };
+      test.onerror = function () {
+        if (timeEl) timeEl.textContent = '⚠️ 暂时无法获取最新画面（可能离线），当前显示为上次成功加载的画面';
+      };
+      test.src = 'https://webcams.whakapapa.com/hvfromskywaka/latest.jpg?t=' + Date.now();
+    }
+    refresh();
+    setInterval(refresh, 5 * 60 * 1000);
+  })();
+  </script>
+
+  <!-- 逐日天气预报（自动更新） -->
+  <div class="city-label">逐日天气预报（今天 → Day 3 玩雪日 7/9）</div>
+  <p id="forecastStatus" style="font-size:12px;color:var(--text-muted);margin:-6px 0 10px;">⏳ 正在加载实时预报…</p>
+  <div style="overflow-x:auto;margin-bottom:12px;">
+  <table style="width:100%;border-collapse:collapse;font-size:14px;">
+    <thead style="background:var(--green);color:white;">
+      <tr>
+        <th style="padding:10px 14px;text-align:left;">日期</th>
+        <th style="padding:10px 14px;text-align:left;">天气</th>
+        <th style="padding:10px 14px;text-align:left;">最高温</th>
+        <th style="padding:10px 14px;text-align:left;">最低温</th>
+        <th style="padding:10px 14px;text-align:left;">备注</th>
+      </tr>
+    </thead>
+    <tbody id="forecastBody">
+      <!-- 静态兜底数据（7/3 查询快照），JS 加载成功后会被实时数据替换 -->
+      <tr style="background:var(--green-tint);">
+        <td style="padding:10px 14px;font-weight:600;">7/3 周五（今天）</td>
+        <td style="padding:10px 14px;">⛅ 多云转晴</td>
+        <td style="padding:10px 14px;">-0.8°C</td>
+        <td style="padding:10px 14px;">-5.1°C</td>
+        <td style="padding:10px 14px;font-size:12px;color:var(--text-muted);">冷但晴朗，造雪条件好</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;font-weight:600;">7/4 周六</td>
+        <td style="padding:10px 14px;">🌨️ 雨夹雪</td>
+        <td style="padding:10px 14px;">3.2°C</td>
+        <td style="padding:10px 14px;">-0.8°C</td>
+        <td style="padding:10px 14px;font-size:12px;color:var(--text-muted);">气温偏高，低海拔可能是雨</td>
+      </tr>
+      <tr style="background:var(--green-tint);">
+        <td style="padding:10px 14px;font-weight:600;">7/5 周日</td>
+        <td style="padding:10px 14px;">❄️ 大雪</td>
+        <td style="padding:10px 14px;">-0.4°C</td>
+        <td style="padding:10px 14px;">-2.9°C</td>
+        <td style="padding:10px 14px;font-size:12px;color:#166534;font-weight:600;">关键日：若落地，雪基会明显改善</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;font-weight:600;">7/6 周一</td>
+        <td style="padding:10px 14px;">⛅ 多云</td>
+        <td style="padding:10px 14px;">1.7°C</td>
+        <td style="padding:10px 14px;">-2.7°C</td>
+        <td style="padding:10px 14px;font-size:12px;color:var(--text-muted);">大雪后转晴，适合压雪造场地</td>
+      </tr>
+      <tr style="background:var(--green-tint);">
+        <td style="padding:10px 14px;font-weight:600;">7/7 周二</td>
+        <td style="padding:10px 14px;">🌨️ 小雪</td>
+        <td style="padding:10px 14px;">-0.4°C</td>
+        <td style="padding:10px 14px;">-2.4°C</td>
+        <td style="padding:10px 14px;font-size:12px;color:var(--text-muted);">继续补充雪量</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;font-weight:600;">7/8 周三</td>
+        <td style="padding:10px 14px;color:var(--text-light);" colspan="3">— 预报窗口外（7/3 查询时）—</td>
+        <td style="padding:10px 14px;font-size:12px;color:#92400E;font-weight:600;">出发前 1–2 天查看</td>
+      </tr>
+      <tr style="background:#FFFBEB;">
+        <td style="padding:10px 14px;font-weight:700;color:#92400E;">7/9 周四 · 玩雪日</td>
+        <td style="padding:10px 14px;color:var(--text-light);" colspan="3">— 预报窗口外 —</td>
+        <td style="padding:10px 14px;font-size:12px;color:#92400E;font-weight:600;">当天决策日，出发前晚必查</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="color:#555;font-size:13px;margin:-4px 0 24px;">📱 温度预报由 Open-Meteo 自动更新（联网打开页面即刷新）；<strong>雪基厚度、24h/7天降雪等雪场专属数据不含在自动更新范围内</strong>，出发前请务必人工查看：<a href="https://www.whakapapa.com/report" target="_blank" style="color:var(--green);font-weight:600;">whakapapa.com/report</a>（雪基+设施开放）· <a href="https://www.whakapapa.com/weather" target="_blank" style="color:var(--green);font-weight:600;">whakapapa.com/weather</a></p>
+
+  <script>
+  (function () {
+    var LAT = -39.2368, LON = 175.5565; // Whakapapa · Top of the Bruce
+    var SKI_DATE = '2026-07-09';
+    var MAX_ROWS = 10;
+    var statusEl = document.getElementById('forecastStatus');
+    var bodyEl = document.getElementById('forecastBody');
+    var weekdays = ['周日','周一','周二','周三','周四','周五','周六'];
+    var codeMap = {
+      0:['☀️','晴'],1:['🌤️','大致晴'],2:['⛅','多云'],3:['☁️','阴'],
+      45:['🌫️','雾'],48:['🌫️','雾凇'],
+      51:['🌦️','小毛雨'],53:['🌦️','毛雨'],55:['🌧️','大毛雨'],
+      56:['🌧️❄️','冻毛雨'],57:['🌧️❄️','冻毛雨'],
+      61:['🌦️','小雨'],63:['🌧️','中雨'],65:['🌧️','大雨'],
+      66:['🌧️❄️','冻雨'],67:['🌧️❄️','冻雨'],
+      71:['🌨️','小雪'],73:['❄️','中雪'],75:['❄️','大雪'],77:['❄️','米雪'],
+      80:['🌦️','阵雨'],81:['🌦️','阵雨'],82:['⛈️','强阵雨'],
+      85:['🌨️','阵雪'],86:['❄️','强阵雪'],
+      95:['⛈️','雷雨'],96:['⛈️','雷雨伴冰雹'],99:['⛈️','雷雨伴冰雹']
+    };
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + LAT + '&longitude=' + LON +
+      '&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,snowfall_sum,windspeed_10m_max' +
+      '&timezone=Pacific%2FAuckland&forecast_days=16';
+
+    fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (data) {
+      if (!data || !data.daily || !data.daily.time || !data.daily.time.length) throw new Error('无数据');
+      var d = data.daily;
+      var rows = '';
+      var count = 0;
+      for (var i = 0; i < d.time.length; i++) {
+        var dateObj = new Date(d.time[i] + 'T00:00:00');
+        var isSkiDay = d.time[i] === SKI_DATE;
+        var label = (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + weekdays[dateObj.getDay()] +
+          (count === 0 ? '（今天）' : '') + (isSkiDay ? ' · 玩雪日' : '');
+        var cm = codeMap[d.weathercode[i]] || ['—', '未知'];
+        var note = '风速约 ' + Math.round(d.windspeed_10m_max[i]) + 'km/h';
+        if (d.snowfall_sum[i] > 0) note += ' · 预计降雪 ' + d.snowfall_sum[i].toFixed(1) + 'cm';
+        rows += '<tr' + (count % 2 === 1 ? ' style="background:var(--green-tint);"' : '') + '>' +
+          '<td style="padding:10px 14px;font-weight:600;' + (isSkiDay ? 'color:#92400E;' : '') + '">' + label + '</td>' +
+          '<td style="padding:10px 14px;">' + cm[0] + ' ' + cm[1] + '</td>' +
+          '<td style="padding:10px 14px;">' + d.temperature_2m_max[i].toFixed(1) + '°C</td>' +
+          '<td style="padding:10px 14px;">' + d.temperature_2m_min[i].toFixed(1) + '°C</td>' +
+          '<td style="padding:10px 14px;font-size:12px;color:' + (isSkiDay ? '#92400E;font-weight:600;' : 'var(--text-muted);') + '">' + (isSkiDay ? '当天决策日 · ' : '') + note + '</td>' +
+          '</tr>';
+        count++;
+        if (isSkiDay || count >= MAX_ROWS) break;
+      }
+      if (!rows) throw new Error('未覆盖到玩雪日');
+      bodyEl.innerHTML = rows;
+      var now = new Date();
+      statusEl.innerHTML = '✅ 已自动更新（Open-Meteo 实时预报，坐标 Whakapapa Top of the Bruce）· 刷新于 ' +
+        now.toLocaleString('zh-CN', { hour12: false });
+      statusEl.style.color = '#166534';
+    }).catch(function () {
+      statusEl.textContent = '⚠️ 当前无法联网获取实时预报（可能离线），下方显示为 7/3 查询时的静态快照，请出发前重新联网查看';
+      statusEl.style.color = '#92400E';
+    });
+  })();
+  </script>
+
   <!-- 摆渡车 -->
   <div class="city-label">摆渡车（National Park Village ↔ Whakapapa 雪场）</div>
   <p style="color:#555;font-size:14px;margin:-8px 0 16px;">所有摆渡车均需<strong>提前预约</strong>，建议前一晚预订。出发地：<strong>National Park Village Park N Ride，1 Ward St, Waimarino</strong>（提前 15 分钟到达）</p>
@@ -1678,7 +1889,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
   <p class="section-desc">一家三口全程预算估算（新西兰元 NZD）· 油价按 $3.50/L 估算</p>
 
   <div class="budget-summary">
-    <div class="budget-stat"><div class="b-num">$620</div><div class="b-label">租车（已付含全险）</div></div>
+    <div class="budget-stat"><div class="b-num">$620</div><div class="b-label">租车（已预订含全险）</div></div>
     <div class="budget-stat"><div class="b-num">~$383</div><div class="b-label">油费（1,150km）</div></div>
     <div class="budget-stat"><div class="b-num">~$1225</div><div class="b-label">住宿（5晚）</div></div>
     <div class="budget-stat"><div class="b-num">~$850</div><div class="b-label">餐饮（6天）</div></div>
@@ -1698,8 +1909,8 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
       <span class="bar-amount">~$850</span>
     </div>
     <div class="bar-row">
-      <span class="bar-label">租车（已付）</span>
-      <div class="bar-track"><div class="bar-fill" style="width:19%;background:#6B7280;">已付</div></div>
+      <span class="bar-label">租车（未付）</span>
+      <div class="bar-track"><div class="bar-fill" style="width:19%;background:#6B7280;">未付</div></div>
       <span class="bar-amount">$620</span>
     </div>
     <div class="bar-row">
@@ -1729,20 +1940,20 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
       <tr><th>项目</th><th>金额 (NZD)</th><th>说明</th><th>类别</th></tr>
     </thead>
     <tbody>
-      <tr class="paid"><td>租车（含全险）</td><td><strong>$620</strong></td><td>7/7 取车 – 7/13 还车，已付</td><td><span class="status-paid">已付</span></td></tr>
+      <tr class="paid"><td>租车（含全险）</td><td><strong>$620</strong></td><td>7/7 取车 – 7/13 还车，已预订未付款</td><td><span class="status-paid">已预订</span></td></tr>
       <tr><td>油费</td><td>约 $383</td><td>1,150km × 9.5L/100km × $3.50/L（7月估价）</td><td><span class="status-core">核心</span></td></tr>
-      <tr class="paid"><td>陶波住宿（3晚）</td><td><strong>$805</strong></td><td>The Reef Resort · 7/7–7/10，已确认</td><td><span class="status-paid">已付</span></td></tr>
-      <tr><td>新普利茅斯住宿（2晚）</td><td><strong>$503.59</strong></td><td>Novotel New Plymouth Taranaki · 7/10–7/12，已确认，到店支付</td><td><span class="status-core">已确认</span></td></tr>
+      <tr class="paid"><td>陶波住宿（3晚）</td><td><strong>$805</strong></td><td>The Reef Resort · 7/7–7/10，已预订未付款</td><td><span class="status-paid">已预订</span></td></tr>
+      <tr><td>新普利茅斯住宿（2晚）</td><td><strong>$503.59</strong></td><td>Novotel New Plymouth Taranaki · 7/10–7/12，已预订未付款，到店支付</td><td><span class="status-core">已确认</span></td></tr>
       <tr><td>Snowland 门票（爸妈2张）</td><td>约 $78</td><td>成人 $39 × 2，娃 季票已购免费</td><td><span class="status-core">核心</span></td></tr>
       <tr><td>摆渡车（3人来回）</td><td>约 $110</td><td>$36.65 × 3人</td><td><span class="status-core">核心</span></td></tr>
       <tr><td>餐饮（6天）</td><td>约 $850</td><td>约 $140/天，部分早餐自理</td><td><span class="status-core">核心</span></td></tr>
       <tr><td>景点·杂费</td><td>约 $180</td><td>几维鸟馆家庭票+Len Lye+咖啡停车等</td><td><span class="status-core">核心</span></td></tr>
-      <tr style="background:#F0FDF4;"><td colspan="2"><strong>核心小计（不含已付租车）</strong></td><td colspan="2"><strong style="color:var(--green);font-size:15px;">约 NZD $2,721</strong></td></tr>
+      <tr style="background:#F0FDF4;"><td colspan="2"><strong>核心小计（不含租车）</strong></td><td colspan="2"><strong style="color:var(--green);font-size:15px;">约 NZD $2,721</strong></td></tr>
       <tr class="optional"><td>Sky Waka 缆车（可选）</td><td>约 $118–169</td><td>2大人或家庭票，冬季价格待确认</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>🧥 防水衣裤租赁（可选）</td><td>约 $40–80</td><td>如无防水外套/裤，山上租 2大人份</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>⛄ 备用玩雪日（可选）</td><td>约 $188</td><td>7/9 上午加玩（天气备案）：摆渡$110 + 门票$78</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>🎲 机动备用金</td><td>约 $150</td><td>应急、加餐、纪念品、停车等</td><td><span class="status-opt">建议留</span></td></tr>
-      <tr class="total-row"><td colspan="2">💰 预计总花费区间（含已付租车）</td><td colspan="2">约 NZD $3,270 – $3,770</td></tr>
+      <tr class="total-row"><td colspan="2">💰 预计总花费区间（含租车，均未付款）</td><td colspan="2">约 NZD $3,270 – $3,770</td></tr>
     </tbody>
   </table>
 
@@ -1878,7 +2089,7 @@ navLinks.forEach(a => {
   try{
     const [taupo,whaka,np]=await Promise.all([
       getWx(-38.68,176.07),
-      getWx(-39.28,175.57),
+      getWx(-39.2368,175.5565), // Whakapapa · Top of the Bruce，与「玩雪专区」逐日预报坐标保持一致
       getWx(-39.06,174.08)
     ]);
     const days=[
