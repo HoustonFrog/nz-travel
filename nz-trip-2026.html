@@ -320,7 +320,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
       <div class="hero-stat"><div class="num">6</div><div class="label">天行程</div></div>
       <div class="hero-stat"><div class="num">1,150</div><div class="label">公里总里程</div></div>
       <div class="hero-stat"><div class="num">2</div><div class="label">城市住宿</div></div>
-      <div class="hero-stat"><div class="num">$3,380–$3,450</div><div class="label">预计总花费 NZD</div></div>
+      <div class="hero-stat"><div class="num">$3,450–$3,520</div><div class="label">预计总花费 NZD</div></div>
       <div class="hero-stat"><div class="num">1</div><div class="label">玩雪日</div></div>
     </div>
     <div class="offline-tip">⚠ 山区信号差，建议出发前将此页面保存至本地或截图备用</div>
@@ -792,8 +792,8 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
         <label for="c1"><strong style="color:var(--green)">✅ 陶波住宿已预订</strong>（7/7–7/10，3晚）<div class="check-sub">The Reef Resort Taupo · 湖边豪华公寓，自带地热温泉热水池（40°C）+ 加热泳池（36°C）</div></label>
       </div>
       <div class="check-item">
-        <input type="checkbox" id="c2" onchange="updateProgress('urgent')">
-        <label for="c2"><strong class="urgent">新普利茅斯住宿</strong>（7/10–7/12，2晚）<div class="check-sub">Auto Lodge Motor Inn 首选，有室内温水泳池</div></label>
+        <input type="checkbox" id="c2" onchange="updateProgress('urgent')" checked>
+        <label for="c2"><strong style="color:var(--green)">✅ 新普利茅斯住宿已预订</strong>（7/10–7/12，2晚）<div class="check-sub">Novotel New Plymouth Taranaki · Studio Room 大床房</div></label>
       </div>
       <div class="check-item">
         <input type="checkbox" id="c3" onchange="updateProgress('urgent')">
@@ -1067,8 +1067,8 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
 <hr class="divider">
 <!-- SECTION 5: HOTELS -->
 <div id="hotels" class="section">
-  <h2 class="section-title">住宿推荐</h2>
-  <p class="section-desc">两城市住宿推荐，按到达顺序排列，含房型、参考价、推荐理由、停车与取消政策</p>
+  <h2 class="section-title">住宿信息</h2>
+  <p class="section-desc">两城市已预订酒店信息，按到达顺序排列，含房型、设施、参考价与取消政策</p>
 
   <div class="city-label">陶波 Taupo · 7/7–7/10（3晚）已预订：The Reef Resort Taupo</div>
   <div class="grid-3">
@@ -1089,7 +1089,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
           <span class="hotel-feature">免费停车</span>
           <span class="hotel-feature">BBQ 区</span>
         </div>
-        <div class="hotel-policy" style="color:var(--green);font-weight:600;">已预订确认，7/7 入住 · 7/10 退房</div>
+        <div class="hotel-policy" style="color:var(--green);font-weight:600;">已预订确认，7/7 入住 · 7/10 退房 · Check in 14:00 后 · Check out 10:00 前</div>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
           <a href="https://www.reefresort.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
           <a href="https://maps.google.com/?q=The+Reef+Resort+Taupo" target="_blank" class="btn btn-outline btn-sm">地图</a>
@@ -1144,134 +1144,78 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
   </div>
 
   <!-- ── 新普利茅斯住宿 Day 4–5 ─────────────────────────────────── -->
-  <div class="city-label">新普利茅斯 New Plymouth · Day 4–5（7/10 入住 → 7/12 退房，2晚）⚠️ 待预订 · 以下 5 家均已核实 7/10–7/12 有房</div>
+  <div class="city-label">新普利茅斯 New Plymouth · Day 4–5（7/10 入住 → 7/12 退房，2晚）已预订：Novotel New Plymouth Taranaki</div>
   <div class="grid-3">
 
-    <!-- 1. Lockwood Manor Motel -->
-    <div class="hotel-card">
-      <div class="hotel-header" style="background:#166534;">
-        <div class="hotel-badge">⭐ 首选 · 最高性价比</div>
-        <div class="hotel-name" style="color:#fff;">洛克伍德庄园汽车旅馆</div>
-        <div class="hotel-name-en">Lockwood Manor Motel</div>
-        <div class="hotel-price" style="color:#fff;">NZD $199 <span style="color:rgba(255,255,255,0.8);">/ 晚 · 2晚合计 NZD $398</span></div>
+    <div class="hotel-card" style="border:2px solid var(--green);">
+      <div class="hotel-header" style="background:var(--green);">
+        <div class="hotel-badge" style="background:rgba(255,255,255,0.15);">已预订确认</div>
+        <div class="hotel-name" style="color:#fff;">新普利茅斯诺富特塔拉纳基酒店</div>
+        <div class="hotel-name-en">Novotel New Plymouth Taranaki · 4.5星</div>
+        <div class="hotel-price" style="color:#fff;">NZD $504 <span>/ 2晚（已确认）约 $252/晚</span></div>
       </div>
       <div class="hotel-body">
-        <div class="hotel-reason">评分 <strong>9.0</strong>（540条）· 位置 9.1/10 · 距市中心 0.7km。家庭工作室大床+单床可住3人，自带厨房，<strong>户外儿童游乐设施</strong>，娃会喜欢！</div>
+        <div class="hotel-reason">位于新普利茅斯市中心北侧，步行可达海滨步道 Coastal Walkway，几分钟车程到 Pukekura 公园、Puke Ariki 博物馆和 Len Lye 艺术中心。酒店自带 Haukai Bistro & Bar 本地风味餐厅、24小时健身房+桑拿，并提供免费自行车供住客探索海滨步道。Studio King 大床房，配工作桌、迷你吧和茶咖设施，可住 2大1小（无加床）。</div>
         <div class="hotel-features">
-          <span class="hotel-feature">⭐ 9.0分</span>
-          <span class="hotel-feature">🧒 儿童游乐设施</span>
-          <span class="hotel-feature">🍳 厨房设施</span>
-          <span class="hotel-feature">🚗 免费停车</span>
-          <span class="hotel-feature">大床+单床</span>
+          <span class="hotel-feature">🛏️ King大床 Studio房</span>
+          <span class="hotel-feature">🍽️ Haukai Bistro & Bar 本地餐厅</span>
+          <span class="hotel-feature">💪 24小时健身房+桑拿</span>
+          <span class="hotel-feature">🚴 免费自行车</span>
+          <span class="hotel-feature">📶 免费光纤WiFi</span>
+          <span class="hotel-feature">🅿️ 地下停车场（$30/晚，可选）</span>
         </div>
-        <div class="hotel-policy ok">7/9 前可免费取消</div>
+        <div class="hotel-policy" style="color:var(--green);font-weight:600;">已预订确认，7/10 入住 · 7/12 退房 · Check in 14:00 后 · Check out 11:00 前 · 入住时到店支付</div>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.booking.com/hotel/nz/lockwood-manor-motel.html?checkin=2026-07-10&checkout=2026-07-12&group_adults=2&group_children=1&age=6&no_rooms=1" target="_blank" class="btn btn-green btn-sm">Booking.com 预订</a>
-          <a href="https://maps.google.com/?q=Lockwood+Manor+Motel+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
+          <a href="https://novotelnewplymouth.com" target="_blank" class="btn btn-green btn-sm">官网</a>
+          <a href="https://maps.google.com/?q=Novotel+New+Plymouth+Taranaki" target="_blank" class="btn btn-outline btn-sm">地图</a>
         </div>
       </div>
     </div>
 
-    <!-- 2. BKS Egmont Motor Lodge -->
-    <div class="hotel-card">
-      <div class="hotel-header" style="background:#0F766E;">
-        <div class="hotel-badge" style="background:rgba(255,255,255,0.2);">含温水浴缸</div>
-        <div class="hotel-name" style="color:#fff;">爱格蒙特汽车旅馆</div>
-        <div class="hotel-name-en">BKS Egmont Motor Lodge</div>
-        <div class="hotel-price" style="color:#fff;">NZD $219 <span style="color:rgba(255,255,255,0.8);">/ 晚 · 2晚合计 NZD $439</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">评分 <strong>8.2</strong>（410条）· 位置 9.1/10 · 距市中心 0.7km。<strong>一室公寓含温水浴缸（Spa Bath）</strong>，大床+单床，私人厨房，适合放松泡浴。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">🛁 温水浴缸</span>
-          <span class="hotel-feature">🍳 私人厨房</span>
-          <span class="hotel-feature">🚗 免费停车</span>
-          <span class="hotel-feature">一室公寓</span>
-          <span class="hotel-feature">大床+单床</span>
-        </div>
-        <div class="hotel-policy ok">7/8 前可免费取消</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.booking.com/hotel/nz/bks-egmont-motor-lodge.html?checkin=2026-07-10&checkout=2026-07-12&group_adults=2&group_children=1&age=6&no_rooms=1" target="_blank" class="btn btn-green btn-sm">Booking.com 预订</a>
-          <a href="https://maps.google.com/?q=BKS+Egmont+Motor+Lodge+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
-        </div>
+  </div>
+
+  <!-- ── 新普利茅斯酒店周边 ───────────────────────────────────────── -->
+  <div class="city-label">Novotel New Plymouth Taranaki 周边便利信息</div>
+  <div class="grid-3">
+    <div class="rest-card">
+      <div class="rest-name">Pak'nSave 新普利茅斯</div>
+      <div class="rest-name-en">Pak'nSave New Plymouth · 大型超市</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">采购首选</span><span class="tag tag-green">价格最低</span></div>
+      <div class="rest-dish"><strong>距酒店：</strong>就在 Leach St 同一条街，步行约 2 分钟即达</div>
+      <div class="rest-dish">🍱 全品类：生鲜、熟食、零食、饮料，适合备好第二天路上零食和水</div>
+      <div class="rest-info-row">⏰ 每日 08:00–22:00</div>
+      <div class="rest-info-row">📞 06 758 1594</div>
+      <div class="rest-info-row">📍 53 Leach St, New Plymouth</div>
+      <div style="margin-top:12px;">
+        <a href="https://maps.google.com/?q=Pak+n+Save+New+Plymouth+Leach+Street" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
-
-    <!-- 3. Flamingo Motel -->
-    <div class="hotel-card">
-      <div class="hotel-header" style="background:#B45309;">
-        <div class="hotel-badge" style="background:rgba(255,255,255,0.2);">含游泳池+热水泡池</div>
-        <div class="hotel-name" style="color:#fff;">火烈鸟汽车旅馆</div>
-        <div class="hotel-name-en">Flamingo Motel</div>
-        <div class="hotel-price" style="color:#fff;">NZD $226 <span style="color:rgba(255,255,255,0.8);">/ 晚 · 2晚合计 NZD $452</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">评分 <strong>8.2</strong>（804条）· 距市中心 2.1km。<strong>太阳能加热游泳池 + 室内热水泡池 + 儿童游乐场</strong>，私人厨房，房间宽敞可住5人，亲子设施最丰富。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">🏊 游泳池</span>
-          <span class="hotel-feature">♨️ 室内热水泡池</span>
-          <span class="hotel-feature">🧒 儿童游乐场</span>
-          <span class="hotel-feature">🍳 私人厨房</span>
-          <span class="hotel-feature">大床+单床</span>
-        </div>
-        <div class="hotel-policy ok">7/8 前可免费取消 · 尚有 6 间</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.booking.com/hotel/nz/flamingo-motel.html?checkin=2026-07-10&checkout=2026-07-12&group_adults=2&group_children=1&age=6&no_rooms=1" target="_blank" class="btn btn-green btn-sm">Booking.com 预订</a>
-          <a href="https://maps.google.com/?q=Flamingo+Motel+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
-        </div>
+    <div class="rest-card">
+      <div class="rest-name">Haukai Bistro &amp; Bar</div>
+      <div class="rest-name-en">酒店内餐厅 · 塔拉纳基本地风味</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">酒店内</span><span class="tag tag-green">早餐+晚餐</span></div>
+      <div class="rest-dish">🍽️ <strong>供应：</strong>自助早餐 + 晚餐 Bistro 菜单，主打塔拉纳基本地食材，室内+户外用餐区</div>
+      <div class="rest-dish">💰 <strong>人均：</strong>约 NZD $35–55/人（晚餐）</div>
+      <div class="rest-info-row">⏰ 早餐、晚餐时段供应，客房 24 小时送餐</div>
+      <div class="rest-info-row">📍 酒店一楼，无需外出</div>
+      <div style="margin-top:12px;">
+        <a href="https://novotelnewplymouth.com/haukai-bistro-bar/" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Novotel+New+Plymouth+Taranaki" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
-
-    <!-- 4. Abode On Courtenay -->
-    <div class="hotel-card">
-      <div class="hotel-header" style="background:#1D4ED8;">
-        <div class="hotel-badge" style="background:rgba(255,255,255,0.2);">最近市中心</div>
-        <div class="hotel-name" style="color:#fff;">科特尼汽车旅馆</div>
-        <div class="hotel-name-en">Abode On Courtenay Motor Inn</div>
-        <div class="hotel-price" style="color:#fff;">NZD $234 <span style="color:rgba(255,255,255,0.8);">/ 晚 · 2晚合计 NZD $469</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">评分 <strong>8.7</strong>（1,103条）· 位置 9.2/10 · <strong>距市中心仅 200m</strong>，步行即达海滨步道。一室套房大床+单床可住3人，免费私人停车。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">⭐ 8.7分</span>
-          <span class="hotel-feature">📍 距市中心200m</span>
-          <span class="hotel-feature">🚗 免费停车</span>
-          <span class="hotel-feature">一室套房</span>
-          <span class="hotel-feature">大床+单床</span>
-        </div>
-        <div class="hotel-policy ok">7/9 前可免费取消</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.booking.com/hotel/nz/abode-on-courtenay-motor-inn.html?checkin=2026-07-10&checkout=2026-07-12&group_adults=2&group_children=1&age=6&no_rooms=1" target="_blank" class="btn btn-green btn-sm">Booking.com 预订</a>
-          <a href="https://maps.google.com/?q=Abode+On+Courtenay+Motor+Inn+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
-        </div>
+    <div class="rest-card">
+      <div class="rest-name">Centre City 购物中心</div>
+      <div class="rest-name-en">Centre City Shopping Centre · 综合购物中心</div>
+      <div style="margin-bottom:8px;"><span class="tag tag-green">药房</span><span class="tag tag-green">日用补给</span></div>
+      <div class="rest-dish">🏬 <strong>提供：</strong>Life Pharmacy / Chemist Warehouse 药房、银行、多家零售店，可补充日用品和常备药</div>
+      <div class="rest-dish">💰 步行约 15 分钟或开车 3–4 分钟</div>
+      <div class="rest-info-row">⏰ 周一至三 09:00–17:30，周四至 20:00，周六 09:00–17:00，周日 10:00–16:00</div>
+      <div class="rest-info-row">📍 11 Gill St, New Plymouth</div>
+      <div style="margin-top:12px;">
+        <a href="https://centre-city.co.nz" target="_blank" class="btn btn-green btn-sm">官网</a>
+        <a href="https://maps.google.com/?q=Centre+City+Shopping+Centre+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
       </div>
     </div>
-
-    <!-- 5. The Dawson Motel -->
-    <div class="hotel-card">
-      <div class="hotel-header" style="background:#7C3AED;">
-        <div class="hotel-badge" style="background:rgba(255,255,255,0.2);">⚡ 最高评分 · 仅剩1间</div>
-        <div class="hotel-name" style="color:#fff;">道森汽车旅馆</div>
-        <div class="hotel-name-en">The Dawson Motel</div>
-        <div class="hotel-price" style="color:#fff;">NZD $240 <span style="color:rgba(255,255,255,0.8);">/ 晚 · 2晚合计 NZD $481</span></div>
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-reason">评分 <strong>9.1</strong>（429条）· 位置 9.5/10 · 员工 9.7/10！距市中心 1.2km，装修现代，评价极高。<strong>⚠️ 仅剩1间</strong>，需尽快预订。</div>
-        <div class="hotel-features">
-          <span class="hotel-feature">🏆 9.1分（最高）</span>
-          <span class="hotel-feature">📍 位置9.5分</span>
-          <span class="hotel-feature">🚗 免费停车</span>
-          <span class="hotel-feature">双床房</span>
-          <span class="hotel-feature">⚡ 仅剩1间</span>
-        </div>
-        <div class="hotel-policy warn">7/8 前可免费取消 · ⚡ 仅剩最后1间，建议优先预订</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.booking.com/hotel/nz/the-dawson-motel.html?checkin=2026-07-10&checkout=2026-07-12&group_adults=2&group_children=1&age=6&no_rooms=1" target="_blank" class="btn btn-green btn-sm">Booking.com 预订</a>
-          <a href="https://maps.google.com/?q=The+Dawson+Motel+New+Plymouth" target="_blank" class="btn btn-outline btn-sm">地图</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 </div>
@@ -1788,17 +1732,17 @@ footer { border-top: 1px solid var(--border); padding: 40px 0 52px; background: 
       <tr class="paid"><td>租车（含全险）</td><td><strong>$620</strong></td><td>7/7 取车 – 7/13 还车，已付</td><td><span class="status-paid">已付</span></td></tr>
       <tr><td>油费</td><td>约 $383</td><td>1,150km × 9.5L/100km × $3.50/L（7月估价）</td><td><span class="status-core">核心</span></td></tr>
       <tr class="paid"><td>陶波住宿（3晚）</td><td><strong>$805</strong></td><td>The Reef Resort · 7/7–7/10，已确认</td><td><span class="status-paid">已付</span></td></tr>
-      <tr><td>新普利茅斯住宿（2晚）</td><td>约 $398–$469</td><td>7/10–7/12，待预订（Lockwood $199/晚 或 Abode $234/晚）</td><td><span class="status-core">核心</span></td></tr>
+      <tr><td>新普利茅斯住宿（2晚）</td><td><strong>$503.59</strong></td><td>Novotel New Plymouth Taranaki · 7/10–7/12，已确认，到店支付</td><td><span class="status-core">已确认</span></td></tr>
       <tr><td>Snowland 门票（爸妈2张）</td><td>约 $78</td><td>成人 $39 × 2，娃 季票已购免费</td><td><span class="status-core">核心</span></td></tr>
       <tr><td>摆渡车（3人来回）</td><td>约 $110</td><td>$36.65 × 3人</td><td><span class="status-core">核心</span></td></tr>
       <tr><td>餐饮（6天）</td><td>约 $850</td><td>约 $140/天，部分早餐自理</td><td><span class="status-core">核心</span></td></tr>
       <tr><td>景点·杂费</td><td>约 $180</td><td>几维鸟馆家庭票+Len Lye+咖啡停车等</td><td><span class="status-core">核心</span></td></tr>
-      <tr style="background:#F0FDF4;"><td colspan="2"><strong>核心小计（不含已付租车）</strong></td><td colspan="2"><strong style="color:var(--green);font-size:15px;">约 NZD $2,651</strong></td></tr>
+      <tr style="background:#F0FDF4;"><td colspan="2"><strong>核心小计（不含已付租车）</strong></td><td colspan="2"><strong style="color:var(--green);font-size:15px;">约 NZD $2,721</strong></td></tr>
       <tr class="optional"><td>Sky Waka 缆车（可选）</td><td>约 $118–169</td><td>2大人或家庭票，冬季价格待确认</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>🧥 防水衣裤租赁（可选）</td><td>约 $40–80</td><td>如无防水外套/裤，山上租 2大人份</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>⛄ 备用玩雪日（可选）</td><td>约 $188</td><td>7/9 上午加玩（天气备案）：摆渡$110 + 门票$78</td><td><span class="status-opt">可选</span></td></tr>
       <tr class="optional"><td>🎲 机动备用金</td><td>约 $150</td><td>应急、加餐、纪念品、停车等</td><td><span class="status-opt">建议留</span></td></tr>
-      <tr class="total-row"><td colspan="2">💰 预计总花费区间（含已付租车）</td><td colspan="2">约 NZD $3,200 – $3,700</td></tr>
+      <tr class="total-row"><td colspan="2">💰 预计总花费区间（含已付租车）</td><td colspan="2">约 NZD $3,270 – $3,770</td></tr>
     </tbody>
   </table>
 
